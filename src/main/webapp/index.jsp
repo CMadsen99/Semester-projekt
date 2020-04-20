@@ -1,68 +1,96 @@
-<%-- 
-    Document   : index
-    Created on : Aug 22, 2017, 2:01:06 PM
-    Author     : kasper
---%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="FunctionLayer.Toppings" %>
+<%@ page import="FunctionLayer.Bottoms" %>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<title>Cupcake projekt</title>
+
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<c:choose>
+    <c:when test="${sessionScope.role=='admin'}">
+        <%@include file="includes/headeradmin.inc" %>
+    </c:when>
+    <c:otherwise>
+        <%@include file="includes/headercostumer.inc" %>
+    </c:otherwise>
+</c:choose>
 
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>2 Semester projekt </title>
-    </head>
-    <body>
-        <h1>2 Semester projekt</h1>
+<%!
 
-       <!-- <table>
-            <tr><td>Login</td>
-                <td>
-                    <form name="login" action="FrontController" method="POST">
-                        <input type="hidden" name="taget" value="login">
-                        Email:<br>
-                        <input type="text" name="email" value="someone@nowhere.com">
-                        <br>
-                        Password:<br>
-                        <input type="password" name="password" value="sesam">
-                        <br>
-                        <input type="submit" value="Submit">
-                    </form>
-                </td>
-                <td>Or Register</td>
-                <td>
-                    <form name="register" action="FrontController" method="POST">
-                        <input type="hidden" name="taget" value="register">
-                        Email:<br>
-                        <input type="text" name="email" value="someone@nowhere.com">
-                        <br>
-                        Password:<br>
-                        <input type="password" name="password1" value="sesam">
-                        <br>
-                        Retype Password:<br>
-                        <input type="password" name="password2" value="sesam">
-                        <br>
-                        <input type="submit" value="Submit">
-                    </form>
-                </td>
-            </tr>
-        </table>
+    @Override
+    public void jspInit() {
+        Toppings.initToppings();
+        Bottoms.initBottoms();
+    }
+
+%>
+
+<%
+
+    request.setAttribute("toppings", Toppings.getToppings());
+    request.setAttribute("bottoms", Bottoms.getBottoms());
+
+%>
 
 
-<%--        Bare lige se I har en ide om hvad vi forslå I ikke gør ! det hedder scpript lets --%>
-<%--        <% String error = (String) request.getAttribute( "error");--%>
-<%--           if ( error != null) { --%>
-<%--               out.println("<H2>Error!!</h2>");--%>
-<%--               out.println(error);--%>
-<%--           }--%>
-<%--        %>--%>
+<h1 class="text-center mt-4">Design din egen carport her</h1>
 
-        <c:if test = "${requestScope.error!= null}" >
 
-           <h2>Error ! </h2>
-            ${requestScope.error}
+<form class="mt-4" name="cupcakeBasket" method="POST" action="FrontController">
+    <input type="hidden" name="taget" value="cupcakeBasket">
 
-        </c:if>-->
-    </body>
-</html>
+    <table class="text-center mt-4" style="width:100%">
+        <th>
+        <th>
+            <div class="btn-group mt-4">
+                <select name="topping" class="mdb-select md-form">
+                    <option value="" disabled selected>Vælg Højde</option>
+                    <c:forEach var="" items="">
+                        <option value="" ">
+                            </option>
+                    </c:forEach>
+                </select>
+            </div>
+        </th> <!-- antal bestemmelse med hvor mange ting der er i kurv -->
+        <th>
+            <div class="btn-group mt-4">
+                <select name="topping" class="mdb-select md-form">
+                    <option value="" disabled selected>Vælg Bredde</option>
+                    <c:forEach var="" items="">
+                        <option value="" ">
+                        </option>
+                    </c:forEach>
+                </select>
+            </div>
+        </th>
+        <th>
+            <div class="btn-group mt-4">
+                <select name="topping" class="mdb-select md-form">
+                    <option value="" disabled selected>Vælg Dybde</option>
+                    <c:forEach var="" items="">
+                        <option value="" ">
+                        </option>
+                    </c:forEach>
+                </select>
+            </div>
+        </th>
+        <th><input class="mt-4" type="submit" name="submit" value="Vælg cupcake"/></th>
+        <th>
+            <div class="mt-4"> ${requestScope.selection}</div>
+        </th>
+        </th>
+    </table>
+
+
+    </div><!-- /btn-group -->
+</form>
+
+<c:if test="${requestScope.error!= null}">
+
+    <h2>Error ! </h2>
+    ${requestScope.error}
+
+</c:if>
+
+<%@include file="includes/footer.jsp" %>
