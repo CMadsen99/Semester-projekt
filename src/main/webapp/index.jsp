@@ -11,12 +11,12 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Welcome page</title>
+        <title>2 Semester projekt </title>
     </head>
     <body>
-        <h1>Welcome to Sem 2</h1>
-        
-        <table>
+        <h1>2 Semester projekt</h1>
+
+       <!-- <table>
             <tr><td>Login</td>
                 <td>
                     <form name="login" action="FrontController" method="POST">
@@ -63,6 +63,6 @@
            <h2>Error ! </h2>
             ${requestScope.error}
 
-        </c:if>
+        </c:if>-->
     </body>
 </html>
