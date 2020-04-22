@@ -15,7 +15,30 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
-USE `carport`;
+--
+-- Table structure for table `bodymaterials`
+--
+
+DROP TABLE IF EXISTS `bodymaterials`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `bodymaterials` (
+  `idroofmaterials` int(11) NOT NULL AUTO_INCREMENT,
+  `material` varchar(45) NOT NULL,
+  PRIMARY KEY (`idroofmaterials`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `bodymaterials`
+--
+
+LOCK TABLES `bodymaterials` WRITE;
+/*!40000 ALTER TABLE `bodymaterials` DISABLE KEYS */;
+INSERT INTO `bodymaterials` VALUES (1,'trykimprægneret profil brædder'),(2,'tværgående trykimprægneret brædder');
+/*!40000 ALTER TABLE `bodymaterials` ENABLE KEYS */;
+UNLOCK TABLES;
+
 --
 -- Table structure for table `height`
 --
@@ -62,6 +85,30 @@ LOCK TABLES `length` WRITE;
 /*!40000 ALTER TABLE `length` DISABLE KEYS */;
 INSERT INTO `length` VALUES (1,'2'),(2,'2.25'),(3,'2.5'),(4,'2.75'),(5,'3'),(6,'3.25'),(7,'3.50'),(8,'3.75'),(9,'4'),(10,'4.25'),(11,'4.5'),(12,'4.75'),(13,'5'),(14,'5.25'),(15,'5.5'),(16,'5.75'),(17,'6');
 /*!40000 ALTER TABLE `length` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `roofmaterials`
+--
+
+DROP TABLE IF EXISTS `roofmaterials`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `roofmaterials` (
+  `idroofmaterials` int(11) NOT NULL AUTO_INCREMENT,
+  `material` varchar(45) NOT NULL,
+  PRIMARY KEY (`idroofmaterials`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `roofmaterials`
+--
+
+LOCK TABLES `roofmaterials` WRITE;
+/*!40000 ALTER TABLE `roofmaterials` DISABLE KEYS */;
+INSERT INTO `roofmaterials` VALUES (1,'gennemsigtige trapez plader'),(2,'bølgeplader');
+/*!40000 ALTER TABLE `roofmaterials` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -121,4 +168,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-04-20 22:29:13
+-- Dump completed on 2020-04-23  1:44:50
