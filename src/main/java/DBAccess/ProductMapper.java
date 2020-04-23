@@ -86,4 +86,42 @@ public class ProductMapper {
             throw new LoginSampleException(ex.getMessage());
         }
     }
+
+    public static ArrayList<Product> getBodymaterials() throws LoginSampleException {
+        ArrayList<Product> bodymaterials = new ArrayList<>();
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT * FROM carport.bodymaterials";
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(SQL);
+            while (rs.next()) {
+                int idbodymaterials = rs.getInt("idbodymaterials");
+                String material = rs.getString("material");
+                Product product = new Product(idbodymaterials, material);
+                bodymaterials.add(product);
+            }
+            return bodymaterials;
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw new LoginSampleException(ex.getMessage());
+        }
+    }
+
+    public static ArrayList<Product> getRoofmaterials() throws LoginSampleException {
+        ArrayList<Product> roofmaterials = new ArrayList<>();
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT * FROM carport.bodymaterials";
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(SQL);
+            while (rs.next()) {
+                int idroofmaterials = rs.getInt("idroofmaterials");
+                String material = rs.getString("material");
+                Product product = new Product(idroofmaterials, material);
+                roofmaterials.add(product);
+            }
+            return roofmaterials;
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw new LoginSampleException(ex.getMessage());
+        }
+    }
 }

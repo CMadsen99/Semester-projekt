@@ -1,7 +1,4 @@
-<%@ page import="FunctionLayer.Heights" %>
-<%@ page import="FunctionLayer.Lengths" %>
-<%@ page import="FunctionLayer.Tilts" %>
-<%@ page import="FunctionLayer.Widths" %>
+<%@ page import="FunctionLayer.*" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <title>Semester projekt</title>
@@ -18,6 +15,8 @@
         Lengths.initLengths();
         Tilts.initTilts();
         Widths.initWidths();
+        Bodymaterials.initBodymaterials();
+        Roofmaterials.initRoofmaterials();
     }
 
 %>
@@ -28,6 +27,8 @@
     request.setAttribute("lengths", Lengths.getLengths());
     request.setAttribute("tilts", Tilts.getTilts());
     request.setAttribute("widths", Widths.getWidths());
+    request.setAttribute("bodymaterials", Bodymaterials.getBodymaterials());
+    request.setAttribute("roofmaterials", Roofmaterials.getRoofmaterials());
 
 %>
 
@@ -142,22 +143,45 @@
     </label>
 </div>
 
-<div class="btn-group mt-4">
+<div div class="btn-group mt-4">
+<select name="length" class="mdb-select md-form">
+    <option value="" disabled selected>Vælg Ønkede længde til skuret</option>
+    <c:forEach var="length" items="${lengths}">
+        <option value="${length.value}" >
+                ${length.value} meter
+        </option>
+    </c:forEach>
+</select>
+</divdiv>
+
+
+    <div class="btn-group mt-4">
     <select name="tilt" class="mdb-select md-form">
         <option value="" disabled selected>Vælg ønskede byggemateriale til beklædning</option>
-        <c:forEach var="tilt" items="${tilts}">
-            <option value="${tilt.value}" >
-                    ${tilt.tiltVal} grader
+        <c:forEach var="bodymaterial" items="${bodymaterials}">
+            <option value="${bodymaterial.value}" >
+                    ${bodymaterial.tiltVal}
             </option>
         </c:forEach>
     </select>
 </div>
+
+    <div class="btn-group mt-4">
+        <select name="tilt" class="mdb-select md-form">
+            <option value="" disabled selected>Vælg ønskede byggemateriale til skuret</option>
+            <c:forEach var="bodymaterial" items="${bodymaterials}">
+                <option value="${bodymaterial.value}" >
+                        ${bodymaterial.tiltVal}
+                </option>
+            </c:forEach>
+        </select>
+    </div>
 <div class="btn-group mt-4">
     <select name="tilt" class="mdb-select md-form">
         <option value="" disabled selected>Vælg byggemateriale til taget</option>
-        <c:forEach var="tilt" items="${tilts}">
-            <option value="${tilt.value}" >
-                    ${tilt.tiltVal} grader
+        <c:forEach var="roofmaterial" items="${roofmaterials}">
+            <option value="${roofmaterial.value}" >
+                    ${roofmaterial.tiltVal}
             </option>
         </c:forEach>
     </select>
