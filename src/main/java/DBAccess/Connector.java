@@ -42,7 +42,7 @@ public class Connector {
             //localhost
             URL = "jdbc:mysql://localhost:3306/carport?serverTimezone=CET&useSSL=false";
             USERNAME = "root";
-            PASSWORD = "Cph26767";
+            PASSWORD = "2812iCloud";
         }
 
 

@@ -142,4 +142,25 @@
     </label>
 </div>
 
+<div class="btn-group mt-4">
+    <select name="tilt" class="mdb-select md-form">
+        <option value="" disabled selected>Vælg ønskede byggemateriale til beklædning</option>
+        <c:forEach var="tilt" items="${tilts}">
+            <option value="${tilt.value}" >
+                    ${tilt.tiltVal} grader
+            </option>
+        </c:forEach>
+    </select>
+</div>
+<div class="btn-group mt-4">
+    <select name="tilt" class="mdb-select md-form">
+        <option value="" disabled selected>Vælg byggemateriale til taget</option>
+        <c:forEach var="tilt" items="${tilts}">
+            <option value="${tilt.value}" >
+                    ${tilt.tiltVal} grader
+            </option>
+        </c:forEach>
+    </select>
+</div>
+
 <%@include file="includes/footer.jsp" %>
