@@ -32,12 +32,6 @@
 
 %>
 
-<c:forEach var="højde" items="${heights}">
-    ${højde.value}<br>
-</c:forEach>
-
-
-
 <h1 class="text-center mt-4">Design din egen carport her</h1>
 
 
@@ -156,7 +150,7 @@
 
 
     <div class="btn-group mt-4">
-    <select name="tilt" class="mdb-select md-form">
+    <select name="bodymaterial" class="mdb-select md-form">
         <option value="" disabled selected>Vælg ønskede byggemateriale til beklædning</option>
         <c:forEach var="bodymaterial" items="${bodymaterials}">
             <option value="${bodymaterial.value}" >
@@ -167,7 +161,7 @@
 </div>
 
     <div class="btn-group mt-4">
-        <select name="tilt" class="mdb-select md-form">
+        <select name="bodymaterial" class="mdb-select md-form">
             <option value="" disabled selected>Vælg ønskede byggemateriale til skuret</option>
             <c:forEach var="bodymaterial" items="${bodymaterials}">
                 <option value="${bodymaterial.value}" >
@@ -177,7 +171,7 @@
         </select>
     </div>
 <div class="btn-group mt-4">
-    <select name="tilt" class="mdb-select md-form">
+    <select name="roofmaterial" class="mdb-select md-form">
         <option value="" disabled selected>Vælg byggemateriale til taget</option>
         <c:forEach var="roofmaterial" items="${roofmaterials}">
             <option value="${roofmaterial.value}" >
@@ -186,5 +180,27 @@
         </c:forEach>
     </select>
 </div>
+
+
+
+
+    <div class="divcls"><input type="checkbox" checked id="demochecked"/>Show/Hide button</div>
+
+    <div class="col-sm-offset-2 col-sm-5" id="chkboxdemo">
+        <p><input type="submit" class="btn btn-lg btn-danger" value="Save Information"></p>
+    </div>
+
+
+    <script>
+        var chkstatus = document.getElementById('demochecked');
+        var btnshowhide = document.getElementById('chkboxdemo');
+
+
+        chkstatus.onchange = function() {
+
+            btnshowhide.hidden = this.checked ? false : true;
+        };
+
+    </script>
 
 <%@include file="includes/footer.jsp" %>

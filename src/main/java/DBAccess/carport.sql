@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.18, for Win64 (x86_64)
 --
--- Host: localhost    Database: carport
+-- Host: 161.35.82.220    Database: carport
 -- ------------------------------------------------------
 -- Server version	8.0.18
 
@@ -26,7 +26,7 @@ CREATE TABLE `bodymaterials` (
   `idbodymaterials` int(11) NOT NULL AUTO_INCREMENT,
   `material` varchar(45) NOT NULL,
   PRIMARY KEY (`idbodymaterials`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -50,7 +50,7 @@ CREATE TABLE `height` (
   `idheight` int(11) NOT NULL AUTO_INCREMENT,
   `height` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idheight`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -74,7 +74,7 @@ CREATE TABLE `length` (
   `idlength` int(11) NOT NULL AUTO_INCREMENT,
   `length` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idlength`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -98,7 +98,7 @@ CREATE TABLE `roofmaterials` (
   `idroofmaterials` int(11) NOT NULL AUTO_INCREMENT,
   `material` varchar(45) NOT NULL,
   PRIMARY KEY (`idroofmaterials`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -122,7 +122,7 @@ CREATE TABLE `tilt` (
   `idtilt` int(11) NOT NULL AUTO_INCREMENT,
   `tilt` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idtilt`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -146,7 +146,7 @@ CREATE TABLE `width` (
   `idwidth` int(11) NOT NULL AUTO_INCREMENT,
   `width` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idwidth`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
