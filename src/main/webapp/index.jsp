@@ -28,6 +28,7 @@
         Widths.initWidths();
         Bodymaterials.initBodymaterials();
         Roofmaterials.initRoofmaterials();
+        Roofcolors.initRoofmaterials();
     }
 
 %>
@@ -40,6 +41,7 @@
     request.setAttribute("widths", Widths.getWidths());
     request.setAttribute("bodymaterials", Bodymaterials.getBodymaterials());
     request.setAttribute("roofmaterials", Roofmaterials.getRoofmaterials());
+    request.setAttribute("roofcolors", Roofcolors.getRoofcolors());
 
 %>
 
@@ -115,16 +117,6 @@ Nej tak til skur
             </c:forEach>
         </select>
     </div>
-    <div class="btn-group mt-4">
-        <select name="length" class="mdb-select md-form">
-            <option value="" disabled selected>Vælg Ønkede længde til skuret</option>
-            <c:forEach var="length" items="${lengths}">
-                <option value="${length.value}" >
-                        ${length.value} meter
-                </option>
-            </c:forEach>
-        </select>
-    </div>
 </div>
 
 <script>
@@ -135,27 +127,6 @@ Nej tak til skur
         document.getElementById('div1').style.display = 'block';
     }
 </script>
-
-<!--<div class="form-check">
-    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-    <label class="form-check-label" for="exampleRadios1">
-        Ja tak til faldt tag
-    </label>
-</div>
-<div class="form-check">
-    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-    <label class="form-check-label" for="exampleRadios2">
-        Ja tak til hældning på taget
-    </label>
-    <div class="btn-group mt-4">
-        <select name="tilt" class="mdb-select md-form">
-            <option value="" disabled selected>Vælg ønskede hældning</option>
-        </select>
-    </div>
-</div> -->
-
-
-
 
     <div class="btn-group mt-4">
     <select name="bodymaterial" class="mdb-select md-form">
@@ -212,6 +183,18 @@ Nej tak til skur
             document.getElementById('div3').style.display = 'block';
         }
     </script></form>
+
+
+<div class="btn-group mt-4">
+    <select name="roofcolor" class="mdb-select md-form">
+        <option value="" disabled selected>Vælg Ønkede farve til taget</option>
+        <c:forEach var="roofcolor" items="${roofcolors}">
+            <option value="${roofcolor.value}" >
+                    ${roofcolors.value}
+            </option>
+        </c:forEach>
+    </select>
+</div>
 
 
 <%@include file="includes/footer.jsp" %>

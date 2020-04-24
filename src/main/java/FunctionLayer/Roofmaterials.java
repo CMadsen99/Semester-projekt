@@ -13,7 +13,7 @@ public class Roofmaterials {
         if (roofmaterials == null) {
             roofmaterials = new ArrayList<>();
             try {
-                roofmaterials = ProductMapper.getBodymaterials();
+                roofmaterials = ProductMapper.getRoofmaterials();
             } catch (LoginSampleException e) {
                 e.getMessage();
             }

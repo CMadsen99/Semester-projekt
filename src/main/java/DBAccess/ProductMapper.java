@@ -110,13 +110,13 @@ public class ProductMapper {
         ArrayList<Product> roofmaterials = new ArrayList<>();
         try {
             Connection con = Connector.connection();
-            String SQL = "SELECT * FROM carport.bodymaterials";
+            String SQL = "SELECT * FROM carport.roofmaterials";
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery(SQL);
             while (rs.next()) {
                 int idroofmaterials = rs.getInt("idroofmaterials");
-                String material = rs.getString("material");
-                Product product = new Product(idroofmaterials, material);
+                String roofmaterial = rs.getString("material");
+                Product product = new Product(idroofmaterials, roofmaterial);
                 roofmaterials.add(product);
             }
             return roofmaterials;
@@ -124,4 +124,22 @@ public class ProductMapper {
             throw new LoginSampleException(ex.getMessage());
         }
     }
+    public static ArrayList<Product> getRoofcolors() throws LoginSampleException {
+        ArrayList<Product> roofcolors = new ArrayList<>();
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT * FROM carport.roofcolor";
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(SQL);
+            while (rs.next()) {
+                int idroofcolors = rs.getInt("idroofcolor");
+                String roofcolor = rs.getString("color");
+                Product product = new Product(idroofcolors, roofcolor);
+                roofcolors.add(product);
+            }
+            return getRoofcolors();
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw new LoginSampleException(ex.getMessage());
+        }
+}
 }
