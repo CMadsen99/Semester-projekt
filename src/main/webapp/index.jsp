@@ -185,7 +185,16 @@ Nej tak til skur
     </script></form>
 
 
-
+<div class="btn-group mt-4">
+    <select name="roofcolor" class="mdb-select md-form">
+        <option value="" disabled selected>Vælg Ønkede farve til taget</option>
+        <c:forEach var="roofcolor" items="${roofcolors}">
+            <option value="${roofcolor.value}" >
+                    ${roofcolor.tiltVal}
+            </option>
+        </c:forEach>
+    </select>
+</div>
 
 
 <%@include file="includes/footer.jsp" %>
