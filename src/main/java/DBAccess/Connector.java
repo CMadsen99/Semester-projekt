@@ -36,7 +36,7 @@ public class Connector {
 
             //localhost
             URL = "jdbc:mysql://161.35.82.220:3306/carport";
-            USERNAME = "root";
+            USERNAME = "root"; 
             PASSWORD = "MitPassword1234/";
         }
 
