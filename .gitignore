@@ -153,3 +153,5 @@ $RECYCLE.BIN/
 src/main/java/DBAccess/Connector.java
 *.java
 src/main/java/DBAccess/Connector.java
+*.java
+src/main/java/DBAccess/Connector.java
