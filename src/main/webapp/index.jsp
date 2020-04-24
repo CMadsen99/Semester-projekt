@@ -5,6 +5,17 @@
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
+<style>
+    body {
+        font-family: arial;
+    }
+    .hide {
+        display: none;
+    }
+    p {
+        font-weight: bold;
+    }
+</style>
 
 
 <%!
@@ -86,8 +97,46 @@
     </div><!-- /btn-group -->
 </form>
 
+<form>
+<input type="radio" name="tab" value="igotnone" onclick="show2();" />
+Ja tak til skur
+<input type="radio" name="tab" value="igottwo" onclick="show1();" />
+Nej tak til skur
+<div id="div1" class="hide">
+    <input type="radio" name="gender" value="male"> Ja tak til skuret skal fylde hele carportens bredde
+    <input type="radio" name="gender" value="female"> Ja tak til skuret skal fylde halvdelen af carportens bredde
+    <div class="btn-group mt-4">
+        <select name="length" class="mdb-select md-form">
+            <option value="" disabled selected>Vælg Ønkede længde til skuret</option>
+            <c:forEach var="length" items="${lengths}">
+                <option value="${length.value}" >
+                        ${length.value} meter
+                </option>
+            </c:forEach>
+        </select>
+    </div>
+    <div class="btn-group mt-4">
+        <select name="length" class="mdb-select md-form">
+            <option value="" disabled selected>Vælg Ønkede længde til skuret</option>
+            <c:forEach var="length" items="${lengths}">
+                <option value="${length.value}" >
+                        ${length.value} meter
+                </option>
+            </c:forEach>
+        </select>
+    </div>
+</div>
 
-<div class="form-check">
+<script>
+    function show2(){
+        document.getElementById('div1').style.display ='none';
+    }
+    function show1(){
+        document.getElementById('div1').style.display = 'block';
+    }
+</script>
+
+<!--<div class="form-check">
     <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
     <label class="form-check-label" for="exampleRadios1">
         Ja tak til faldt tag
@@ -101,52 +150,11 @@
     <div class="btn-group mt-4">
         <select name="tilt" class="mdb-select md-form">
             <option value="" disabled selected>Vælg ønskede hældning</option>
-            <c:forEach var="tilt" items="${tilts}">
-                <option value="${tilt.value}" >
-                    ${tilt.tiltVal} grader
-                </option>
-            </c:forEach>
         </select>
     </div>
-</div>
+</div> -->
 
 
-<div class="form-check">
-    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option1" checked>
-    <label class="form-check-label" for="exampleRadios3">
-        Ja tak til skur
-    </label>
-</div>
-<div class="form-check">
-    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios4" value="option2">
-    <label class="form-check-label" for="exampleRadios4">
-        Nej tak til skur
-    </label>
-</div>
-
-<div class="form-check">
-    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios5" value="option1" checked>
-    <label class="form-check-label" for="exampleRadios5">
-        Ja tak til skuret skal fylde hele carportens bredde
-    </label>
-</div>
-<div class="form-check">
-    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios6" value="option2">
-    <label class="form-check-label" for="exampleRadios6">
-        Nej tak til skuret skal fylde halvdelen af skurets bredde
-    </label>
-</div>
-
-<div div class="btn-group mt-4">
-<select name="length" class="mdb-select md-form">
-    <option value="" disabled selected>Vælg Ønkede længde til skuret</option>
-    <c:forEach var="length" items="${lengths}">
-        <option value="${length.value}" >
-                ${length.value} meter
-        </option>
-    </c:forEach>
-</select>
-</divdiv>
 
 
     <div class="btn-group mt-4">
@@ -159,17 +167,6 @@
         </c:forEach>
     </select>
 </div>
-
-    <div class="btn-group mt-4">
-        <select name="bodymaterial" class="mdb-select md-form">
-            <option value="" disabled selected>Vælg ønskede byggemateriale til skuret</option>
-            <c:forEach var="bodymaterial" items="${bodymaterials}">
-                <option value="${bodymaterial.value}" >
-                        ${bodymaterial.tiltVal}
-                </option>
-            </c:forEach>
-        </select>
-    </div>
 <div class="btn-group mt-4">
     <select name="roofmaterial" class="mdb-select md-form">
         <option value="" disabled selected>Vælg byggemateriale til taget</option>
@@ -180,27 +177,41 @@
         </c:forEach>
     </select>
 </div>
+    <script>
+        function show1(){
+            document.getElementById('div1').style.display ='none';
+        }
+        function show2(){
+            document.getElementById('div1').style.display = 'block';
+        }
+    </script>
+</form>
 
-
-
-
-    <div class="divcls"><input type="checkbox" checked id="demochecked"/>Show/Hide button</div>
-
-    <div class="col-sm-offset-2 col-sm-5" id="chkboxdemo">
-        <p><input type="submit" class="btn btn-lg btn-danger" value="Save Information"></p>
+<form>
+    <input type="radio" name="tab" value="igotnone" onclick="show3();" />
+    Ja tak til fladt tag
+    <input type="radio" name="tab" value="igottwo" onclick="show4();" />
+    Ja tak til hældning på taget
+    <div class="btn-group mt-4, hide" id="div3">
+        <select name="tilt" class="mdb-select md-form">
+            <option value="" disabled selected>Vælg ønskede hældning</option>
+            <c:forEach var="tilt" items="${tilts}">
+                <option value="${tilt.value}" >
+                        ${tilt.tiltVal} grader
+                </option>
+            </c:forEach>
+        </select>
+    </div>
     </div>
 
-
     <script>
-        var chkstatus = document.getElementById('demochecked');
-        var btnshowhide = document.getElementById('chkboxdemo');
+        function show3(){
+            document.getElementById('div3').style.display ='none';
+        }
+        function show4(){
+            document.getElementById('div3').style.display = 'block';
+        }
+    </script></form>
 
-
-        chkstatus.onchange = function() {
-
-            btnshowhide.hidden = this.checked ? false : true;
-        };
-
-    </script>
 
 <%@include file="includes/footer.jsp" %>
