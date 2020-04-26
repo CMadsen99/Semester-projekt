@@ -9,7 +9,7 @@ public class Roofcolors {
 
     private static List<Product> roofcolors;
 
-    public static void initRoofmaterials() {
+    public static void initRoofcolors() {
         if (roofcolors == null) {
             roofcolors = new ArrayList<>();
             try {

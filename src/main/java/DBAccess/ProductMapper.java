@@ -137,9 +137,45 @@ public class ProductMapper {
                 Product product = new Product(idroofcolors, roofcolor);
                 roofcolors.add(product);
             }
-            return getRoofcolors();
+            return roofcolors;
         } catch (ClassNotFoundException | SQLException ex) {
             throw new LoginSampleException(ex.getMessage());
         }
 }
+    public static ArrayList<Product> getWallcolors() throws LoginSampleException {
+        ArrayList<Product> wallcolors = new ArrayList<>();
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT * FROM carport.wallcolor";
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(SQL);
+            while (rs.next()) {
+                int idwallcolors = rs.getInt("idwallcolor");
+                String wallcolor = rs.getString("color");
+                Product product = new Product(idwallcolors, wallcolor);
+                wallcolors.add(product);
+            }
+            return wallcolors;
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw new LoginSampleException(ex.getMessage());
+        }
+    }
+    public static ArrayList<Product> getPillarcolors() throws LoginSampleException {
+        ArrayList<Product> pillarcolors = new ArrayList<>();
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT * FROM carport.pillarcolor";
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(SQL);
+            while (rs.next()) {
+                int idpillarcolors = rs.getInt("idpillarcolor");
+                String pillarcolor = rs.getString("color");
+                Product product = new Product(idpillarcolors, pillarcolor);
+                pillarcolors.add(product);
+            }
+            return pillarcolors;
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw new LoginSampleException(ex.getMessage());
+        }
+    }
 }

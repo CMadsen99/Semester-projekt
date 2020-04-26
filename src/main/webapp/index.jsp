@@ -28,7 +28,9 @@
         Widths.initWidths();
         Bodymaterials.initBodymaterials();
         Roofmaterials.initRoofmaterials();
-        Roofcolors.initRoofmaterials();
+        Roofcolors.initRoofcolors();
+        Wallcolors.initWallcolors();
+        Pillarcolors.initPillarcolors();
     }
 
 %>
@@ -42,6 +44,8 @@
     request.setAttribute("bodymaterials", Bodymaterials.getBodymaterials());
     request.setAttribute("roofmaterials", Roofmaterials.getRoofmaterials());
     request.setAttribute("roofcolors", Roofcolors.getRoofcolors());
+    request.setAttribute("wallcolors",Wallcolors.getWallcolors());
+    request.setAttribute("pillarcolors",Pillarcolors.getPillarcolors());
 
 %>
 
@@ -195,6 +199,34 @@ Nej tak til skur
         </c:forEach>
     </select>
 </div>
+
+<div class="btn-group mt-4">
+    <select name="wallcolor" class="mdb-select md-form">
+        <option value="" disabled selected>Vælg Ønkede farve til væggene</option>
+        <c:forEach var="wallcolor" items="${wallcolors}">
+            <option value="${wallcolor.value}" >
+                    ${wallcolor.tiltVal}
+            </option>
+        </c:forEach>
+    </select>
+</div>
+
+<div class="btn-group mt-4">
+    <select name="pillarcolor" class="mdb-select md-form">
+        <option value="" disabled selected>Vælg Ønkede farve til stolperne</option>
+        <c:forEach var="pillarcolor" items="${pillarcolors}">
+            <option value="${pillarcolor.value}" >
+                    ${pillarcolor.tiltVal}
+            </option>
+        </c:forEach>
+    </select>
+</div>
+
+
+<a href="signin.jsp">login side</a>
+<a href="signUp.jsp">opret side</a>
+<a href="collectlist.jsp">stykliste</a>
+
 
 
 <%@include file="includes/footer.jsp" %>
