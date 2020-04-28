@@ -2,7 +2,7 @@
 --
 -- Host: 161.35.82.220    Database: carport
 -- ------------------------------------------------------
--- Server version	8.0.18
+-- Server version	5.7.29-0ubuntu0.18.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -59,7 +59,7 @@ CREATE TABLE `height` (
 
 LOCK TABLES `height` WRITE;
 /*!40000 ALTER TABLE `height` DISABLE KEYS */;
-INSERT INTO `height` VALUES (1,'2'),(2,'2.25'),(3,'2.5'),(4,'2.75'),(5,'3'),(6,'3.25'),(7,'3.50'),(8,'3.75'),(9,'4');
+INSERT INTO `height` VALUES (1,'200'),(2,'225'),(3,'250'),(4,'275'),(5,'300'),(6,'325'),(7,'350'),(8,'375'),(9,'400');
 /*!40000 ALTER TABLE `height` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -83,8 +83,56 @@ CREATE TABLE `length` (
 
 LOCK TABLES `length` WRITE;
 /*!40000 ALTER TABLE `length` DISABLE KEYS */;
-INSERT INTO `length` VALUES (1,'2'),(2,'2.25'),(3,'2.5'),(4,'2.75'),(5,'3'),(6,'3.25'),(7,'3.50'),(8,'3.75'),(9,'4'),(10,'4.25'),(11,'4.5'),(12,'4.75'),(13,'5'),(14,'5.25'),(15,'5.5'),(16,'5.75'),(17,'6');
+INSERT INTO `length` VALUES (1,'200'),(2,'225'),(3,'250'),(4,'275'),(5,'300'),(6,'325'),(7,'350'),(8,'375'),(9,'400'),(10,'425'),(11,'450'),(12,'475'),(13,'500'),(14,'525'),(15,'550'),(16,'575'),(17,'600');
 /*!40000 ALTER TABLE `length` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `pillarcolor`
+--
+
+DROP TABLE IF EXISTS `pillarcolor`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `pillarcolor` (
+  `idpillarcolor` int(11) NOT NULL AUTO_INCREMENT,
+  `color` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`idpillarcolor`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pillarcolor`
+--
+
+LOCK TABLES `pillarcolor` WRITE;
+/*!40000 ALTER TABLE `pillarcolor` DISABLE KEYS */;
+INSERT INTO `pillarcolor` VALUES (1,'Rød-lys'),(2,'Blå-lys'),(3,'Grøn-lys'),(4,'Gul-lys'),(5,'Orange-lys'),(6,'Brun-lys'),(7,'Grå-lys'),(8,'Rød-mørk'),(9,'Blå-mørk'),(10,'Grøn-mørk'),(11,'Gul-mørk'),(12,'Orange-mørk'),(13,'Brun-mørk'),(14,'Grå-mørk');
+/*!40000 ALTER TABLE `pillarcolor` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `roofcolor`
+--
+
+DROP TABLE IF EXISTS `roofcolor`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `roofcolor` (
+  `idroofcolor` int(11) NOT NULL AUTO_INCREMENT,
+  `color` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`idroofcolor`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `roofcolor`
+--
+
+LOCK TABLES `roofcolor` WRITE;
+/*!40000 ALTER TABLE `roofcolor` DISABLE KEYS */;
+INSERT INTO `roofcolor` VALUES (1,'Rød-lys'),(2,'Blå-lys'),(3,'Grøn-lys'),(4,'Gul-lys'),(5,'Orange-lys'),(6,'Brun-lys'),(7,'Grå-lys'),(8,'Rød-mørk'),(9,'Blå-mørk'),(10,'Grøn-mørk'),(11,'Gul-mørk'),(12,'Orange-mørk'),(13,'Brun-mørk'),(14,'Grå-mørk');
+/*!40000 ALTER TABLE `roofcolor` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -131,8 +179,63 @@ CREATE TABLE `tilt` (
 
 LOCK TABLES `tilt` WRITE;
 /*!40000 ALTER TABLE `tilt` DISABLE KEYS */;
-INSERT INTO `tilt` VALUES (1,'5°'),(2,'10°'),(3,'15°'),(4,'20°'),(5,'25°'),(6,'30°'),(7,'35°'),(8,'40°'),(9,'45°');
+INSERT INTO `tilt` VALUES (1,'5'),(2,'10'),(3,'15'),(4,'20'),(5,'25'),(6,'30'),(7,'35'),(8,'40'),(9,'45');
 /*!40000 ALTER TABLE `tilt` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `user`
+--
+
+DROP TABLE IF EXISTS `user`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `user` (
+  `iduser` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) NOT NULL,
+  `email` varchar(45) NOT NULL,
+  `password` varchar(45) NOT NULL,
+  `city` varchar(45) NOT NULL,
+  `zip` varchar(45) NOT NULL,
+  `address` varchar(45) DEFAULT NULL,
+  `role` varchar(45) DEFAULT NULL,
+  `balance` int(11) DEFAULT NULL,
+  PRIMARY KEY (`iduser`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `user`
+--
+
+LOCK TABLES `user` WRITE;
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` VALUES (1,'Bob','bob@gmail.com','Bobpassword','Virum','2830','Bakketoppen 42','user',500);
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `wallcolor`
+--
+
+DROP TABLE IF EXISTS `wallcolor`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `wallcolor` (
+  `idwallcolor` int(11) NOT NULL AUTO_INCREMENT,
+  `color` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`idwallcolor`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `wallcolor`
+--
+
+LOCK TABLES `wallcolor` WRITE;
+/*!40000 ALTER TABLE `wallcolor` DISABLE KEYS */;
+INSERT INTO `wallcolor` VALUES (1,'Rød-lys'),(2,'Blå-lys'),(3,'Grøn-lys'),(4,'Gul-lys'),(5,'Orange-lys'),(6,'Brun-lys'),(7,'Grå-lys'),(8,'Rød-mørk'),(9,'Blå-mørk'),(10,'Grøn-mørk'),(11,'Gul-mørk'),(12,'Orange-mørk'),(13,'Brun-mørk'),(14,'Grå-mørk');
+/*!40000 ALTER TABLE `wallcolor` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -155,7 +258,7 @@ CREATE TABLE `width` (
 
 LOCK TABLES `width` WRITE;
 /*!40000 ALTER TABLE `width` DISABLE KEYS */;
-INSERT INTO `width` VALUES (1,'2'),(2,'2.25'),(3,'2.5'),(4,'2.75'),(5,'3'),(6,'3.25'),(7,'3.50'),(8,'3.75'),(9,'4'),(10,'4.25'),(11,'4.5'),(12,'4.75'),(13,'5'),(14,'5.25'),(15,'5.5'),(16,'5.75'),(17,'6');
+INSERT INTO `width` VALUES (1,'200'),(2,'225'),(3,'250'),(4,'275'),(5,'300'),(6,'325'),(7,'350'),(8,'375'),(9,'400'),(10,'425'),(11,'450'),(12,'475'),(13,'500'),(14,'525'),(15,'550'),(16,'575'),(17,'600');
 /*!40000 ALTER TABLE `width` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -168,4 +271,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-04-23 11:43:56
+-- Dump completed on 2020-04-28 14:47:10
