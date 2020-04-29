@@ -49,7 +49,7 @@
 
             <div class="form-group">
                 <label for="adress">Indtast gade og gade nummer:</label>
-                <input type="text" name="adress" class="form-control" id="adress">
+                <input type="text" name="address" class="form-control" id="adress">
             </div>
 
             <div class="text-center">

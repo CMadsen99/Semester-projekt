@@ -29,8 +29,8 @@
         Bodymaterials.initBodymaterials();
         Roofmaterials.initRoofmaterials();
         Roofcolors.initRoofcolors();
-        Wallcolors.initWallcolors();
-        Pillarcolors.initPillarcolors();
+        //Wallcolors.initWallcolors();
+        //Pillarcolors.initPillarcolors();
     }
 
 %>
@@ -44,8 +44,8 @@
     request.setAttribute("bodymaterials", Bodymaterials.getBodymaterials());
     request.setAttribute("roofmaterials", Roofmaterials.getRoofmaterials());
     request.setAttribute("roofcolors", Roofcolors.getRoofcolors());
-    request.setAttribute("wallcolors",Wallcolors.getWallcolors());
-    request.setAttribute("pillarcolors",Pillarcolors.getPillarcolors());
+    //request.setAttribute("wallcolors",Wallcolors.getWallcolors());
+    //request.setAttribute("pillarcolors",Pillarcolors.getPillarcolors());
 
 %>
 
@@ -63,7 +63,7 @@
                     <option value="" disabled selected>Vælg Højde</option>
                     <c:forEach var="height" items="${heights}">
                         <option value="${height.value}" datatype="${height.id}">
-                            ${height.value} meter
+                            ${height.value} cm
                         </option>
                     </c:forEach>
                 </select>
@@ -75,7 +75,7 @@
                     <option value="" disabled selected>Vælg Bredde</option>
                     <c:forEach var="width" items="${widths}">
                         <option value="${width.value}">
-                            ${width.value} meter
+                            ${width.value} cm
                         </option>
                     </c:forEach>
                 </select>
@@ -87,7 +87,7 @@
                     <option value="" disabled selected>Vælg Dybde</option>
                     <c:forEach var="length" items="${lengths}">
                         <option value="${length.value}" >
-                            ${length.value} meter
+                            ${length.value} cm
                         </option>
                     </c:forEach>
                 </select>
@@ -116,7 +116,7 @@ Nej tak til skur
             <option value="" disabled selected>Vælg Ønkede længde til skuret</option>
             <c:forEach var="length" items="${lengths}">
                 <option value="${length.value}" >
-                        ${length.value} meter
+                        ${length.value} cm
                 </option>
             </c:forEach>
         </select>
@@ -223,9 +223,16 @@ Nej tak til skur
 </div>
 
 
-<a href="signin.jsp">login side</a>
-<a href="signUp.jsp">opret side</a>
-<a href="collectlist.jsp">stykliste</a>
+<a href="FrontController?taget=redirect&destination=signin">login side</a> <br>
+<a href="FrontController?taget=redirect&destination=signUp">opret bruger side</a> <br>
+<a href="FrontController?taget=redirect&destination=collectlist">stykliste</a>
+
+<c:if test="${requestScope.error!= null}">
+
+    <h2>Error ! </h2>
+    ${requestScope.error}
+
+</c:if>
 
 
 

@@ -31,11 +31,11 @@ public class Connector {
     }
 
     public static void setDBCredentials() {
-        String deployed = System.getenv("DEPLOYED");
+        //String deployed = System.getenv("DEPLOYED");
 
 
             //localhost
-            URL = "jdbc:mysql://161.35.82.220:3306/carport?serverTimezone=CET&useSSL=false";
+            URL = "jdbc:mysql://localhost:3306/carport?serverTimezone=CET&useSSL=false";
             USERNAME = "root";
 
             PASSWORD = "root";
