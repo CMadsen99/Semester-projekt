@@ -10,5 +10,7 @@ public class Redirect extends Command {
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
         String destination = request.getParameter("destination");
         return "destination";
+
+        
     }
 }
