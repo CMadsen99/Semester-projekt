@@ -29,8 +29,8 @@
         Bodymaterials.initBodymaterials();
         Roofmaterials.initRoofmaterials();
         Roofcolors.initRoofcolors();
-        //Wallcolors.initWallcolors();
-        //Pillarcolors.initPillarcolors();
+        Wallcolors.initWallcolors();
+        Pillarcolors.initPillarcolors();
     }
 
 %>
@@ -44,8 +44,8 @@
     request.setAttribute("bodymaterials", Bodymaterials.getBodymaterials());
     request.setAttribute("roofmaterials", Roofmaterials.getRoofmaterials());
     request.setAttribute("roofcolors", Roofcolors.getRoofcolors());
-    //request.setAttribute("wallcolors",Wallcolors.getWallcolors());
-    //request.setAttribute("pillarcolors",Pillarcolors.getPillarcolors());
+    request.setAttribute("wallcolors",Wallcolors.getWallcolors());
+    request.setAttribute("pillarcolors",Pillarcolors.getPillarcolors());
 
 %>
 
@@ -234,6 +234,13 @@ Nej tak til skur
 
 </c:if>
 
+<%if ((session.getAttribute("email") != null)) { %>
+<br><br>
+        du er logget ind med ${sessionScope.email}
+
+<% } else { %>
+<br><br>du er ikke logget ind
+<% } %>
 
 
 <%@include file="includes/footer.jsp" %>
