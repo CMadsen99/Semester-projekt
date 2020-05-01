@@ -52,8 +52,8 @@
 <h1 class="text-center mt-4">Design din egen carport her</h1>
 
 
-<form class="mt-4" name="" method="POST" action="FrontController">
-    <input type="hidden" name="taget" value="">
+<form class="mt-4" name="carportCal" method="POST" action="FrontController">
+    <input type="hidden" name="taget" value="carportCal">
 
     <table class="text-center mt-4" style="width:100%">
         <th>
@@ -84,7 +84,7 @@
         <th>
             <div class="btn-group mt-4">
                 <select name="length" class="mdb-select md-form">
-                    <option value="" disabled selected>Vælg Dybde</option>
+                    <option value="" disabled selected>Vælg Længde</option>
                     <c:forEach var="length" items="${lengths}">
                         <option value="${length.value}" >
                             ${length.value} cm
