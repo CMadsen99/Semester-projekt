@@ -7,7 +7,7 @@ import java.util.List;
 
 public class Bodymaterials {
 
-        private static List<Product> bodymaterials;
+        private static List<Material> bodymaterials;
 
         public static void initBodymaterials() {
             if (bodymaterials == null) {
@@ -20,7 +20,7 @@ public class Bodymaterials {
             }
         }
 
-        public static List<Product> getBodymaterials() {
+        public static List<Material> getBodymaterials() {
             return bodymaterials;
         }
 }

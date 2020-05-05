@@ -7,7 +7,7 @@ import java.util.List;
 
 public class Roofmaterials {
 
-    private static List<Product> roofmaterials;
+    private static List<Material> roofmaterials;
 
     public static void initRoofmaterials() {
         if (roofmaterials == null) {
@@ -20,7 +20,7 @@ public class Roofmaterials {
         }
     }
 
-    public static List<Product> getRoofmaterials() {
+    public static List<Material> getRoofmaterials() {
         return roofmaterials;
     }
 }

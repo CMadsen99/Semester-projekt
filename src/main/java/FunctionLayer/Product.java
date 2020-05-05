@@ -3,15 +3,10 @@ package FunctionLayer;
 public class Product {
 
     private int id;
-    private double value;
-    private String tiltVal;
+    private int value;
 
-    public Product(int id, String tiltVal) {
-        this.id = id;
-        this.tiltVal = tiltVal;
-    }
 
-    public Product(int id, double value) {
+    public Product(int id, int value) {
         this.id = id;
         this.value = value;
     }
@@ -24,19 +19,11 @@ public class Product {
         this.id = id;
     }
 
-    public double getValue() {
+    public int getValue() {
         return value;
     }
 
-    public void setValue(double value) {
+    public void setValue(int value) {
         this.value = value;
-    }
-
-    public String getTiltVal() {
-        return tiltVal;
-    }
-
-    public void setTiltVal(String tiltVal) {
-        this.tiltVal = tiltVal;
     }
 }

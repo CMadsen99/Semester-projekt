@@ -6,20 +6,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Pillarcolors {
-    private static List<Product> pillarcolors;
+    private static List<Material> pillarcolors;
 
     public static void initPillarcolors() {
         if (pillarcolors == null) {
             pillarcolors = new ArrayList<>();
             try {
-                pillarcolors = ProductMapper.getWallcolors();
+                pillarcolors = ProductMapper.getPillarcolors();
             } catch (LoginSampleException e) {
                 e.getMessage();
             }
         }
     }
 
-    public static List<Product> getPillarcolors() {
+    public static List<Material> getPillarcolors() {
         return pillarcolors;
     }
 }

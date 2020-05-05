@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Wallcolors {
-    private static List<Product> wallcolors;
+    private static List<Material> wallcolors;
 
     public static void initWallcolors() {
         if (wallcolors == null) {
@@ -19,7 +19,7 @@ public class Wallcolors {
         }
     }
 
-    public static List<Product> getWallcolors() {
+    public static List<Material> getWallcolors() {
         return wallcolors;
     }
 }

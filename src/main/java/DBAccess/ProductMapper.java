@@ -1,12 +1,10 @@
 package DBAccess;
 
 import FunctionLayer.LoginSampleException;
+import FunctionLayer.Material;
 import FunctionLayer.Product;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class ProductMapper {
@@ -20,7 +18,7 @@ public class ProductMapper {
             ResultSet rs = stmt.executeQuery(SQL);
             while (rs.next()) {
                 int id = rs.getInt("idheight");
-                double height = rs.getDouble("height");
+                int height = rs.getInt("height");
                 Product product = new Product(id, height);
                 heights.add(product);
             }
@@ -39,7 +37,7 @@ public class ProductMapper {
             ResultSet rs = stmt.executeQuery(SQL);
             while (rs.next()) {
                 int id = rs.getInt("idlength");
-                double length = rs.getDouble("length");
+                int length = rs.getInt("length");
                 Product product = new Product(id, length);
                 lengths.add(product);
             }
@@ -58,7 +56,7 @@ public class ProductMapper {
             ResultSet rs = stmt.executeQuery(SQL);
             while (rs.next()) {
                 int id = rs.getInt("idtilt");
-                String tilt = rs.getString("tilt");
+                int tilt = rs.getInt("tilt");
                 Product product = new Product(id, tilt);
                 tilts.add(product);
             }
@@ -77,7 +75,7 @@ public class ProductMapper {
             ResultSet rs = stmt.executeQuery(SQL);
             while (rs.next()) {
                 int id = rs.getInt("idwidth");
-                double width = rs.getDouble("width");
+                int width = rs.getInt("width");
                 Product product = new Product(id, width);
                 widths.add(product);
             }
@@ -87,8 +85,9 @@ public class ProductMapper {
         }
     }
 
-    public static ArrayList<Product> getBodymaterials() throws LoginSampleException {
-        ArrayList<Product> bodymaterials = new ArrayList<>();
+    public static ArrayList<Material> getBodymaterials() throws LoginSampleException {
+        ArrayList<Material> bodymaterials = new ArrayList<>();
+        int length = 0;
         try {
             Connection con = Connector.connection();
             String SQL = "SELECT * FROM carport.bodymaterials";
@@ -96,9 +95,11 @@ public class ProductMapper {
             ResultSet rs = stmt.executeQuery(SQL);
             while (rs.next()) {
                 int idbodymaterials = rs.getInt("idbodymaterials");
-                String material = rs.getString("material");
-                Product product = new Product(idbodymaterials, material);
-                bodymaterials.add(product);
+                String name = rs.getString("material");
+                double width = rs.getDouble("width");
+                double height = rs.getDouble("height");
+                Material material = new Material(idbodymaterials, name, width, height, length);
+                bodymaterials.add(material);
             }
             return bodymaterials;
         } catch (ClassNotFoundException | SQLException ex) {
@@ -106,8 +107,8 @@ public class ProductMapper {
         }
     }
 
-    public static ArrayList<Product> getRoofmaterials() throws LoginSampleException {
-        ArrayList<Product> roofmaterials = new ArrayList<>();
+    public static ArrayList<Material> getRoofmaterials() throws LoginSampleException {
+        ArrayList<Material> roofmaterials = new ArrayList<>();
         try {
             Connection con = Connector.connection();
             String SQL = "SELECT * FROM carport.roofmaterials";
@@ -115,17 +116,17 @@ public class ProductMapper {
             ResultSet rs = stmt.executeQuery(SQL);
             while (rs.next()) {
                 int idroofmaterials = rs.getInt("idroofmaterials");
-                String roofmaterial = rs.getString("material");
-                Product product = new Product(idroofmaterials, roofmaterial);
-                roofmaterials.add(product);
+                String name = rs.getString("material");
+                Material material = new Material(idroofmaterials, name);
+                roofmaterials.add(material);
             }
             return roofmaterials;
         } catch (ClassNotFoundException | SQLException ex) {
             throw new LoginSampleException(ex.getMessage());
         }
     }
-    public static ArrayList<Product> getRoofcolors() throws LoginSampleException {
-        ArrayList<Product> roofcolors = new ArrayList<>();
+    public static ArrayList<Material> getRoofcolors() throws LoginSampleException {
+        ArrayList<Material> roofcolors = new ArrayList<>();
         try {
             Connection con = Connector.connection();
             String SQL = "SELECT * FROM carport.roofcolor";
@@ -134,16 +135,16 @@ public class ProductMapper {
             while (rs.next()) {
                 int idroofcolors = rs.getInt("idroofcolor");
                 String roofcolor = rs.getString("color");
-                Product product = new Product(idroofcolors, roofcolor);
-                roofcolors.add(product);
+                Material material = new Material(idroofcolors, roofcolor);
+                roofcolors.add(material);
             }
             return roofcolors;
         } catch (ClassNotFoundException | SQLException ex) {
             throw new LoginSampleException(ex.getMessage());
         }
 }
-    public static ArrayList<Product> getWallcolors() throws LoginSampleException {
-        ArrayList<Product> wallcolors = new ArrayList<>();
+    public static ArrayList<Material> getWallcolors() throws LoginSampleException {
+        ArrayList<Material> wallcolors = new ArrayList<>();
         try {
             Connection con = Connector.connection();
             String SQL = "SELECT * FROM carport.wallcolor";
@@ -152,16 +153,16 @@ public class ProductMapper {
             while (rs.next()) {
                 int idwallcolors = rs.getInt("idwallcolor");
                 String wallcolor = rs.getString("color");
-                Product product = new Product(idwallcolors, wallcolor);
-                wallcolors.add(product);
+                Material material = new Material(idwallcolors, wallcolor);
+                wallcolors.add(material);
             }
             return wallcolors;
         } catch (ClassNotFoundException | SQLException ex) {
             throw new LoginSampleException(ex.getMessage());
         }
     }
-    public static ArrayList<Product> getPillarcolors() throws LoginSampleException {
-        ArrayList<Product> pillarcolors = new ArrayList<>();
+    public static ArrayList<Material> getPillarcolors() throws LoginSampleException {
+        ArrayList<Material> pillarcolors = new ArrayList<>();
         try {
             Connection con = Connector.connection();
             String SQL = "SELECT * FROM carport.pillarcolor";
@@ -170,10 +171,32 @@ public class ProductMapper {
             while (rs.next()) {
                 int idpillarcolors = rs.getInt("idpillarcolor");
                 String pillarcolor = rs.getString("color");
-                Product product = new Product(idpillarcolors, pillarcolor);
-                pillarcolors.add(product);
+                Material material = new Material(idpillarcolors, pillarcolor);
+                pillarcolors.add(material);
             }
             return pillarcolors;
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw new LoginSampleException(ex.getMessage());
+        }
+    }
+
+    public static Material getBodyMaterial(int materialID, int length) throws LoginSampleException {
+        Material bodyMaterial = null;
+        int quantity = 0;
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT * FROM carport.bodymaterials WHERE idbodymaterials = ?";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setInt(1, materialID);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                String name = rs.getString("material");
+                double width = rs.getDouble("width");
+                double height = rs.getDouble("height");
+                bodyMaterial = new Material(materialID, name, width, height, length, quantity);
+            }
+            return bodyMaterial;
+
         } catch (ClassNotFoundException | SQLException ex) {
             throw new LoginSampleException(ex.getMessage());
         }

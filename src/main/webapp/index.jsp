@@ -136,8 +136,8 @@ Nej tak til skur
     <select name="bodymaterial" class="mdb-select md-form">
         <option value="" disabled selected>Vælg ønskede byggemateriale til beklædning</option>
         <c:forEach var="bodymaterial" items="${bodymaterials}">
-            <option value="${bodymaterial.value}" >
-                    ${bodymaterial.tiltVal}
+            <option value="${bodymaterial.id}" >
+                    ${bodymaterial.name}
             </option>
         </c:forEach>
     </select>
@@ -146,8 +146,8 @@ Nej tak til skur
     <select name="roofmaterial" class="mdb-select md-form">
         <option value="" disabled selected>Vælg byggemateriale til taget</option>
         <c:forEach var="roofmaterial" items="${roofmaterials}">
-            <option value="${roofmaterial.value}" >
-                    ${roofmaterial.tiltVal}
+            <option value="${roofmaterial.id}" >
+                    ${roofmaterial.name}
             </option>
         </c:forEach>
     </select>
@@ -172,7 +172,7 @@ Nej tak til skur
             <option value="" disabled selected>Vælg ønskede hældning</option>
             <c:forEach var="tilt" items="${tilts}">
                 <option value="${tilt.value}" >
-                        ${tilt.tiltVal} grader
+                        ${tilt.value} grader
                 </option>
             </c:forEach>
         </select>
@@ -193,8 +193,8 @@ Nej tak til skur
     <select name="roofcolor" class="mdb-select md-form">
         <option value="" disabled selected>Vælg Ønkede farve til taget</option>
         <c:forEach var="roofcolor" items="${roofcolors}">
-            <option value="${roofcolor.value}" >
-                    ${roofcolor.tiltVal}
+            <option value="${roofcolor.id}" >
+                    ${roofcolor.name}
             </option>
         </c:forEach>
     </select>
@@ -204,8 +204,8 @@ Nej tak til skur
     <select name="wallcolor" class="mdb-select md-form">
         <option value="" disabled selected>Vælg Ønkede farve til væggene</option>
         <c:forEach var="wallcolor" items="${wallcolors}">
-            <option value="${wallcolor.value}" >
-                    ${wallcolor.tiltVal}
+            <option value="${wallcolor.id}" >
+                    ${wallcolor.name}
             </option>
         </c:forEach>
     </select>
@@ -215,8 +215,8 @@ Nej tak til skur
     <select name="pillarcolor" class="mdb-select md-form">
         <option value="" disabled selected>Vælg Ønkede farve til stolperne</option>
         <c:forEach var="pillarcolor" items="${pillarcolors}">
-            <option value="${pillarcolor.value}" >
-                    ${pillarcolor.tiltVal}
+            <option value="${pillarcolor.id}" >
+                    ${pillarcolor.name}
             </option>
         </c:forEach>
     </select>
