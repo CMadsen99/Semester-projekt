@@ -5,6 +5,15 @@
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
+
+<c:choose>
+    <c:when test="${sessionScope.role=='admin'}">
+        <%@include file="includes/headeradmin.inc" %>
+    </c:when>
+    <c:otherwise>
+        <%@include file="includes/headercostumer.inc" %>
+    </c:otherwise>
+</c:choose>
 <style>
     body {
         font-family: arial;
@@ -48,80 +57,202 @@
     request.setAttribute("pillarcolors",Pillarcolors.getPillarcolors());
 
 %>
-
 <h1 class="text-center mt-4">Design din egen carport her</h1>
 
+<table style="width:100%">
+    <tr>
+        <th><h5>vælg dine mål her</h5></th>
+        <th><h5>præferencer</h5></th>
+        <th><h5>Vælg farver</h5></th>
+        <th><h5>Oversigt over carport</h5></th>
+    </tr>
 
-<form class="mt-4" name="carportCal" method="POST" action="FrontController">
-    <input type="hidden" name="taget" value="carportCal">
-
-    <table class="text-center mt-4" style="width:100%">
-        <th>
-        <th>
-            <div class="btn-group mt-4">
+    <tr>
+        <form class="text-left mt-0" name="carportCal" method="POST" action="FrontController">
+            <input type="hidden" name="taget" value="carportCal">
+            <td><div class="btn-group mt-4">
                 <select name="height" class="mdb-select md-form">
                     <option value="" disabled selected>Vælg Højde</option>
                     <c:forEach var="height" items="${heights}">
                         <option value="${height.value}" datatype="${height.id}">
-                            ${height.value} cm
+                                ${height.value} cm
+                        </option>
+                    </c:forEach>
+                </select>
+            </div></td></form>
+
+        <td>        <form class="text-left mt-0" name="carportCal" method="POST" action="FrontController">
+            <input type="hidden" name="taget" value="carportCal">
+            <h5>Tag</h5>
+
+            <input type="radio" name="tab" value="igotnone" onclick="show3();" />
+            Ja tak til fladt tag
+            <br><input type="radio" name="tab" value="igottwo" onclick="show4();" />
+            Ja tak til hældning på taget
+            <div class="btn-group mt-4, hide" id="div3">
+                <select name="tilt" class="mdb-select md-form">
+                    <option value="" disabled selected>Vælg ønskede hældning</option>
+                    <c:forEach var="tilt" items="${tilts}">
+                        <option value="${tilt.value}" >
+                                ${tilt.value} grader
                         </option>
                     </c:forEach>
                 </select>
             </div>
-        </th>
-        <th>
-            <div class="btn-group mt-4">
+
+            <script>
+                function show3(){
+                    document.getElementById('div3').style.display ='none';
+                }
+                function show4(){
+                    document.getElementById('div3').style.display = 'block';
+                }
+            </script></form></td>
+        <form class="text-left mt-0" name="carportCal" method="POST" action="FrontController">
+            <input type="hidden" name="taget" value="carportCal">
+        <td><div class="btn-group mt-4">
+            <select name="roofcolor" class="mdb-select md-form">
+                <option value="" disabled selected>Vælg Ønkede farve til taget</option>
+                <c:forEach var="roofcolor" items="${roofcolors}">
+                    <option value="${roofcolor.id}" >
+                            ${roofcolor.name}
+                    </option>
+                </c:forEach>
+            </select>
+        </div></td></form>
+        <td><div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="d-block w-100" src="..." alt="First slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="..." alt="Second slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="..." alt="Third slide">
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div></td>
+    </tr>
+    <tr>
+        <form class="text-left mt-0" name="carportCal" method="POST" action="FrontController">
+            <input type="hidden" name="taget" value="carportCal">
+            <td><div class="btn-group mt-4">
                 <select name="width" class="mdb-select md-form">
                     <option value="" disabled selected>Vælg Bredde</option>
                     <c:forEach var="width" items="${widths}">
                         <option value="${width.value}">
-                            ${width.value} cm
+                                ${width.value} cm
                         </option>
                     </c:forEach>
                 </select>
-            </div>
-        </th>
-        <th>
-            <div class="btn-group mt-4">
+                </div></td></form>
+        <td><h5>Skur</h5>
+            <form class="text-left mt-0" name="carportCal" method="POST" action="FrontController">
+                <input type="hidden" name="taget" value="carportCal">
+                <input type="radio" name="tab" value="igotnone" onclick="show2();" />
+                Ja tak til skur
+               <br> <input type="radio" name="tab" value="igottwo" onclick="show1();" />
+                Nej tak til skur</td>
+        <td><div class="btn-group mt-4">
+            <select name="wallcolor" class="mdb-select md-form">
+                <option value="" disabled selected>Vælg Ønkede farve til væggene</option>
+                <c:forEach var="wallcolor" items="${wallcolors}">
+                    <option value="${wallcolor.id}" >
+                            ${wallcolor.name}
+                    </option>
+                </c:forEach>
+            </select>
+        </div></td></form>
+    </tr>
+    <tr>
+        <form class="text-left mt-0" name="carportCal" method="POST" action="FrontController">
+            <input type="hidden" name="taget" value="carportCal">
+            <td>            <div class="btn-group mt-4">
                 <select name="length" class="mdb-select md-form">
                     <option value="" disabled selected>Vælg Længde</option>
                     <c:forEach var="length" items="${lengths}">
                         <option value="${length.value}" >
-                            ${length.value} cm
+                                ${length.value} cm
+                        </option>
+                    </c:forEach>
+                </select>
+            </div></td></form>
+        <form class="text-left mt-0" name="carportCal" method="POST" action="FrontController">
+            <input type="hidden" name="taget" value="carportCal">
+        <td><div id="div1" class="hide">
+            <input type="radio" name="gender" value="male"> Ja tak til skuret skal fylde hele carportens bredde
+            <br><input type="radio" name="gender" value="female"> Ja tak til skuret skal fylde halvdelen af carportens bredde
+            <div class="btn-group mt-4">
+                <select name="length" class="mdb-select md-form">
+                    <option value="" disabled selected>Vælg Ønkede længde til skuret</option>
+                    <c:forEach var="length" items="${lengths}">
+                        <option value="${length.value}" >
+                                ${length.value} cm
                         </option>
                     </c:forEach>
                 </select>
             </div>
-        </th>
-        <th>
-            <div class="mt-4"></div>
-        </th>
-        </th>
-    </table>
-
-
-    </div><!-- /btn-group -->
-</form>
-
-<form>
-<input type="radio" name="tab" value="igotnone" onclick="show2();" />
-Ja tak til skur
-<input type="radio" name="tab" value="igottwo" onclick="show1();" />
-Nej tak til skur
-<div id="div1" class="hide">
-    <input type="radio" name="gender" value="male"> Ja tak til skuret skal fylde hele carportens bredde
-    <input type="radio" name="gender" value="female"> Ja tak til skuret skal fylde halvdelen af carportens bredde
-    <div class="btn-group mt-4">
-        <select name="length" class="mdb-select md-form">
-            <option value="" disabled selected>Vælg Ønkede længde til skuret</option>
-            <c:forEach var="length" items="${lengths}">
-                <option value="${length.value}" >
-                        ${length.value} cm
-                </option>
-            </c:forEach>
-        </select>
-    </div>
-</div>
+        </div>
+            </div></td></form>
+        <form class="text-left mt-0" name="carportCal" method="POST" action="FrontController">
+            <input type="hidden" name="taget" value="carportCal">
+        <td><div class="btn-group mt-4">
+            <select name="pillarcolor" class="mdb-select md-form">
+                <option value="" disabled selected>Vælg Ønkede farve til stolperne</option>
+                <c:forEach var="pillarcolor" items="${pillarcolors}">
+                    <option value="${pillarcolor.id}" >
+                            ${pillarcolor.name}
+                    </option>
+                </c:forEach>
+            </select>
+        </div></td></form>
+    </tr>
+    <tr>
+        <td>Vælg dine materialer her</td>
+    </tr>
+    <tr>
+        <form class="text-left mt-0" name="carportCal" method="POST" action="FrontController">
+            <input type="hidden" name="taget" value="carportCal">
+            <td>    <div class="btn-group mt-4">
+                <select name="bodymaterial" class="mdb-select md-form">
+                    <option value="" disabled selected>beklædning til carporten</option>
+                    <c:forEach var="bodymaterial" items="${bodymaterials}">
+                        <option value="${bodymaterial.id}" >
+                                ${bodymaterial.name}
+                        </option>
+                    </c:forEach>
+                </select>
+            </div></td></form>
+    </tr>
+    <tr>
+        <form class="text-left mt-0" name="carportCal" method="POST" action="FrontController">
+            <input type="hidden" name="taget" value="carportCal">
+            <td><div class="btn-group mt-4">
+                <select name="roofmaterial" class="mdb-select md-form">
+                    <option value="" disabled selected>Bekldning til taget</option>
+                    <c:forEach var="roofmaterial" items="${roofmaterials}">
+                        <option value="${roofmaterial.id}" >
+                                ${roofmaterial.name}
+                        </option>
+                    </c:forEach>
+                </select>
+            </div></td></form>
+    </tr>
+</table>
 
 <script>
     function show2(){
@@ -132,26 +263,6 @@ Nej tak til skur
     }
 </script>
 
-    <div class="btn-group mt-4">
-    <select name="bodymaterial" class="mdb-select md-form">
-        <option value="" disabled selected>Vælg ønskede byggemateriale til beklædning</option>
-        <c:forEach var="bodymaterial" items="${bodymaterials}">
-            <option value="${bodymaterial.id}" >
-                    ${bodymaterial.name}
-            </option>
-        </c:forEach>
-    </select>
-</div>
-<div class="btn-group mt-4">
-    <select name="roofmaterial" class="mdb-select md-form">
-        <option value="" disabled selected>Vælg byggemateriale til taget</option>
-        <c:forEach var="roofmaterial" items="${roofmaterials}">
-            <option value="${roofmaterial.id}" >
-                    ${roofmaterial.name}
-            </option>
-        </c:forEach>
-    </select>
-</div>
     <script>
         function show1(){
             document.getElementById('div1').style.display ='none';
@@ -161,70 +272,8 @@ Nej tak til skur
         }
     </script>
 </form>
+<br>
 
-<form>
-    <input type="radio" name="tab" value="igotnone" onclick="show3();" />
-    Ja tak til fladt tag
-    <input type="radio" name="tab" value="igottwo" onclick="show4();" />
-    Ja tak til hældning på taget
-    <div class="btn-group mt-4, hide" id="div3">
-        <select name="tilt" class="mdb-select md-form">
-            <option value="" disabled selected>Vælg ønskede hældning</option>
-            <c:forEach var="tilt" items="${tilts}">
-                <option value="${tilt.value}" >
-                        ${tilt.value} grader
-                </option>
-            </c:forEach>
-        </select>
-    </div>
-    </div>
-
-    <script>
-        function show3(){
-            document.getElementById('div3').style.display ='none';
-        }
-        function show4(){
-            document.getElementById('div3').style.display = 'block';
-        }
-    </script></form>
-
-
-<div class="btn-group mt-4">
-    <select name="roofcolor" class="mdb-select md-form">
-        <option value="" disabled selected>Vælg Ønkede farve til taget</option>
-        <c:forEach var="roofcolor" items="${roofcolors}">
-            <option value="${roofcolor.id}" >
-                    ${roofcolor.name}
-            </option>
-        </c:forEach>
-    </select>
-</div>
-
-<div class="btn-group mt-4">
-    <select name="wallcolor" class="mdb-select md-form">
-        <option value="" disabled selected>Vælg Ønkede farve til væggene</option>
-        <c:forEach var="wallcolor" items="${wallcolors}">
-            <option value="${wallcolor.id}" >
-                    ${wallcolor.name}
-            </option>
-        </c:forEach>
-    </select>
-</div>
-
-<div class="btn-group mt-4">
-    <select name="pillarcolor" class="mdb-select md-form">
-        <option value="" disabled selected>Vælg Ønkede farve til stolperne</option>
-        <c:forEach var="pillarcolor" items="${pillarcolors}">
-            <option value="${pillarcolor.id}" >
-                    ${pillarcolor.name}
-            </option>
-        </c:forEach>
-    </select>
-</div>
-
-
-<a href="FrontController?taget=redirect&destination=signin">login side</a> <br>
-<a href="FrontController?taget=redirect&destination=signUp">opret bruger side</a> <br>
 <a href="FrontController?taget=redirect&destination=collectlist">stykliste</a>
 
 <c:if test="${requestScope.error!= null}">
@@ -243,4 +292,8 @@ Nej tak til skur
 <% } %>
 
 
+<form class="text-left mt-0" name="carportCal" method="POST" action="FrontController">
+    <input type="hidden" name="taget" value="carportCal">
+<button type="submit" class="btn btn-primary">Send til medarbejder</button>
+</form>
 <%@include file="includes/footer.jsp" %>

@@ -1,6 +1,18 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<style>
+.navbar-default {
+    background-color: #000975;
+    display: flex;
+    justify-content: space-around;
+    align items: center;
+    margin: opx;
+    padding: opx;
+    box-sizing: border-box;
 
+}
+    }
+</style>
 <!doctype html>
 <html lang="en">
 <head>
@@ -14,11 +26,12 @@
 </head>
 <body>
 
-<div class="container">
+<div class="container align-center">
 
-    <img src="images/headbanner.png" class="img-fluid mb-4"/>
-
-<nav class="navbar navbar-expand-lg navbar btn-dark">
+<nav class="navbar navbar-expand-lg navbar-default">
+<a class="navbar-brand" href="index.jsp">
+    <img src="images/logo.png" width="60" height="60" alt="">
+  </a>
       <a class="navbar-brand" href="index.jsp" style="color:white">Forside</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>

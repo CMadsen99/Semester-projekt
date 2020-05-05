@@ -1,6 +1,6 @@
-<title>Cupcake projekt</title>
+<title>Log in</title>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
+<%@include file="../includes/headercostumer.inc" %>
 
 <h1 class="text-center mt-4">${requestScope.orderMsg}</h1>
 
@@ -33,11 +33,10 @@
                 <input type="password" name="password" class="form-control" id="passsword">
             </div>
 
-
-            <!--<div style="text-align: center">
+            <div style="text-align: center">
                 Hvis du ikke er medlem <a href="FrontController?taget=redirect&destination=signUp"
                                           class="button large hpbottom">registrer her:</a>
-            </div>-->
+            </div>
 
 
             <div class="text-center">
