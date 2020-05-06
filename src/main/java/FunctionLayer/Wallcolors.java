@@ -12,7 +12,7 @@ public class Wallcolors {
         if (wallcolors == null) {
             wallcolors = new ArrayList<>();
             try {
-                wallcolors = ProductMapper.getWallcolors();
+                wallcolors = ProductMapper.getColors();
             } catch (LoginSampleException e) {
                 e.getMessage();
             }

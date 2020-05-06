@@ -125,60 +125,24 @@ public class ProductMapper {
             throw new LoginSampleException(ex.getMessage());
         }
     }
-    public static ArrayList<Material> getRoofcolors() throws LoginSampleException {
-        ArrayList<Material> roofcolors = new ArrayList<>();
+    public static ArrayList<Material> getColors() throws LoginSampleException {
+        ArrayList<Material> colors = new ArrayList<>();
         try {
             Connection con = Connector.connection();
             String SQL = "SELECT * FROM carport.roofcolor";
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery(SQL);
             while (rs.next()) {
-                int idroofcolors = rs.getInt("idroofcolor");
-                String roofcolor = rs.getString("color");
-                Material material = new Material(idroofcolors, roofcolor);
-                roofcolors.add(material);
+                int idColor = rs.getInt("idcolor");
+                String color = rs.getString("color");
+                Material material = new Material(idColor, color);
+                colors.add(material);
             }
-            return roofcolors;
+            return colors;
         } catch (ClassNotFoundException | SQLException ex) {
             throw new LoginSampleException(ex.getMessage());
         }
 }
-    public static ArrayList<Material> getWallcolors() throws LoginSampleException {
-        ArrayList<Material> wallcolors = new ArrayList<>();
-        try {
-            Connection con = Connector.connection();
-            String SQL = "SELECT * FROM carport.wallcolor";
-            Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery(SQL);
-            while (rs.next()) {
-                int idwallcolors = rs.getInt("idwallcolor");
-                String wallcolor = rs.getString("color");
-                Material material = new Material(idwallcolors, wallcolor);
-                wallcolors.add(material);
-            }
-            return wallcolors;
-        } catch (ClassNotFoundException | SQLException ex) {
-            throw new LoginSampleException(ex.getMessage());
-        }
-    }
-    public static ArrayList<Material> getPillarcolors() throws LoginSampleException {
-        ArrayList<Material> pillarcolors = new ArrayList<>();
-        try {
-            Connection con = Connector.connection();
-            String SQL = "SELECT * FROM carport.pillarcolor";
-            Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery(SQL);
-            while (rs.next()) {
-                int idpillarcolors = rs.getInt("idpillarcolor");
-                String pillarcolor = rs.getString("color");
-                Material material = new Material(idpillarcolors, pillarcolor);
-                pillarcolors.add(material);
-            }
-            return pillarcolors;
-        } catch (ClassNotFoundException | SQLException ex) {
-            throw new LoginSampleException(ex.getMessage());
-        }
-    }
 
     public static Material getBodyMaterial(int materialID, int length) throws LoginSampleException {
         Material bodyMaterial = null;

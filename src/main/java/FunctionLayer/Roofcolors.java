@@ -13,7 +13,7 @@ public class Roofcolors {
         if (roofcolors == null) {
             roofcolors = new ArrayList<>();
             try {
-                roofcolors = ProductMapper.getRoofcolors();
+                roofcolors = ProductMapper.getColors();
             } catch (LoginSampleException e) {
                 e.getMessage();
             }

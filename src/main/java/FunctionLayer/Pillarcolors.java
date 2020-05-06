@@ -12,7 +12,7 @@ public class Pillarcolors {
         if (pillarcolors == null) {
             pillarcolors = new ArrayList<>();
             try {
-                pillarcolors = ProductMapper.getPillarcolors();
+                pillarcolors = ProductMapper.getColors();
             } catch (LoginSampleException e) {
                 e.getMessage();
             }
