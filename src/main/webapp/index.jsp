@@ -63,8 +63,8 @@
 
 <table style="width:100%">
     <tr>
-        <th><h5>vælg dine mål her</h5></th>
-        <th><h5>præferencer</h5></th>
+        <th><h5>Vælg dine mål her</h5></th>
+        <th><h5>Præferencer</h5></th>
         <th><h5>Vælg farver</h5></th>
         <th><h5>Oversigt over carport</h5></th>
     </tr>
@@ -72,6 +72,7 @@
     <tr>
         <form class="text-left mt-0" name="carportCal" method="POST" action="FrontController">
             <input type="hidden" name="taget" value="carportCal">
+            <input type="hidden" name="usersID" value="${sessionScope.usersID}">
             <td>
                 <div class="btn-group mt-4">
                     <select name="height" class="mdb-select md-form">
@@ -88,9 +89,9 @@
             <td>
                 <h5>Tag</h5>
                 <fieldset id="roof">
-                <input type="radio" name="roof" value="igotnone" onclick="show3();"/>
+                <input type="radio" name="roof" value="0" onclick="show3();"/>
                 Ja tak til fladt tag
-                <br><input type="radio" name="roof" value="igottwo" onclick="show4();"/>
+                <br><input type="radio" name="roof" value="1" onclick="show4();"/>
                 Ja tak til hældning på taget
                 <div class="btn-group mt-4, hide" id="div3">
                     <select name="tilt" class="mdb-select md-form">
@@ -118,7 +119,7 @@
             <td>
                 <div class="btn-group mt-4">
                     <select name="roofcolor" class="mdb-select md-form">
-                        <option value="" disabled selected>Vælg Ønkede farve til taget</option>
+                        <option value="" disabled selected>Vælg ønskede farve til taget</option>
                         <c:forEach var="roofcolor" items="${roofcolors}">
                             <option value="${roofcolor.id}">
                                     ${roofcolor.name}
@@ -171,16 +172,16 @@
         </td>
         <td><h5>Skur</h5>
             <fieldset id="shed">
-            <input type="radio" name="shed" value="igotnone" onclick="show2();"/>
+            <input type="radio" name="shed" value="1" onclick="show2();"/>
             Ja tak til skur
-            <br> <input type="radio" name="shed" value="igottwo" onclick="show1();"/>
+            <br> <input type="radio" name="shed" value="0" onclick="show1();"/>
             Nej tak til skur
             </fieldset>
         </td>
         <td>
             <div class="btn-group mt-4">
                 <select name="wallcolor" class="mdb-select md-form">
-                    <option value="" disabled selected>Vælg Ønkede farve til væggene</option>
+                    <option value="" disabled selected>Vælg ønskede farve til væggene</option>
                     <c:forEach var="wallcolor" items="${wallcolors}">
                         <option value="${wallcolor.id}">
                                 ${wallcolor.name}
@@ -208,12 +209,12 @@
         <td>
             <fieldset id="shedwidth">
             <div id="div1" class="hide">
-                <input type="radio" name="shedwidth" value="male"> Ja tak til skuret skal fylde hele carportens bredde
-                <br><input type="radio" name="shedwidth" value="female"> Ja tak til skuret skal fylde halvdelen af
+                <input type="radio" name="shedwidth" value="2"> Ja tak til skuret skal fylde hele carportens bredde
+                <br><input type="radio" name="shedwidth" value="1"> Ja tak til skuret skal fylde halvdelen af
                 carportens bredde
                 <div class="btn-group mt-4">
-                    <select name="length" class="mdb-select md-form">
-                        <option value="" disabled selected>Vælg Ønkede længde til skuret</option>
+                    <select name="shedlength" class="mdb-select md-form">
+                        <option value="" disabled selected>Vælg ønskede længde til skuret</option>
                         <c:forEach var="length" items="${lengths}">
                             <option value="${length.value}">
                                     ${length.value} cm
@@ -229,7 +230,7 @@
         <td>
             <div class="btn-group mt-4">
                 <select name="pillarcolor" class="mdb-select md-form">
-                    <option value="" disabled selected>Vælg Ønkede farve til stolperne</option>
+                    <option value="" disabled selected>Vælg ønskede farve til stolperne</option>
                     <c:forEach var="pillarcolor" items="${pillarcolors}">
                         <option value="${pillarcolor.id}">
                                 ${pillarcolor.name}
@@ -247,7 +248,7 @@
         <td>
             <div class="btn-group mt-4">
                 <select name="bodymaterial" class="mdb-select md-form">
-                    <option value="" disabled selected>beklædning til carporten</option>
+                    <option value="" disabled selected>Beklædning til carporten</option>
                     <c:forEach var="bodymaterial" items="${bodymaterials}">
                         <option value="${bodymaterial.id}">
                                 ${bodymaterial.name}
@@ -262,7 +263,7 @@
         <td>
             <div class="btn-group mt-4">
                 <select name="roofmaterial" class="mdb-select md-form">
-                    <option value="" disabled selected>Bekldning til taget</option>
+                    <option value="" disabled selected>Beklædning til taget</option>
                     <c:forEach var="roofmaterial" items="${roofmaterials}">
                         <option value="${roofmaterial.id}">
                                 ${roofmaterial.name}

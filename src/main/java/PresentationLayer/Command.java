@@ -15,7 +15,11 @@ abstract class Command {
         commands.put( "register", new Register() );
         commands.put( "redirect", new Redirect() );
         commands.put( "carportCal", new CarportCal() );
-        commands.put("logout", new Logout());
+        commands.put("logout", new Logout() );
+        commands.put("orderViewAll", new OrderViewAll() );
+        commands.put("collectListView", new CollectListView() );
+        commands.put("orderView", new OrderView() );
+        commands.put("collectListViewUser", new CollectListViewUser() );
     }
 
     static Command from( HttpServletRequest request ) {

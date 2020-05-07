@@ -1,14 +1,10 @@
 <%--
   Created by IntelliJ IDEA.
-  User: jacobsimonsen
-  Date: 26/04/2020
-  Time: 13.56
+  User: Acer
+  Date: 07-05-2020
+  Time: 10:23
   To change this template use File | Settings | File Templates.
-
-
-  medarbejderen går ind på en kundeliste, hvor han så kan vælge en bestemt kunde via en knap hvor han så kan se hele styllisten
 --%>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <title>Stykliste</title>
 
@@ -35,7 +31,7 @@
     </tr>
     </thead>
     <tbody>
-    <c:forEach var="collectList" items="${sessionScope.collectList}">
+    <c:forEach var="collectList" items="${sessionScope.collectListUser}">
 
         <tr>
             <th scope="row">${collectList.name}</th>
@@ -51,4 +47,3 @@
 
 
 <%@include file="../includes/footer.jsp" %>
-

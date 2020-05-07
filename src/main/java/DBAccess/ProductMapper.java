@@ -129,7 +129,7 @@ public class ProductMapper {
         ArrayList<Material> colors = new ArrayList<>();
         try {
             Connection con = Connector.connection();
-            String SQL = "SELECT * FROM carport.roofcolor";
+            String SQL = "SELECT * FROM carport.colors";
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery(SQL);
             while (rs.next()) {
