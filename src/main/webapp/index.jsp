@@ -295,12 +295,12 @@
     }
 </script>
 
+<div class="text-center mt-0">
 <button type="submit" class="btn btn-primary">Send til medarbejder</button>
 </form>
-
+</div>
 <br>
 
-<a href="FrontController?taget=redirect&destination=collectlist">stykliste</a>
 
 <c:if test="${requestScope.error!= null}">
 
@@ -308,14 +308,6 @@
     ${requestScope.error}
 
 </c:if>
-
-<%if ((session.getAttribute("email") != null)) { %>
-<br><br>
-du er logget ind med ${sessionScope.email}
-
-<% } else { %>
-<br><br>du er ikke logget ind
-<% } %>
 
 
 <%@include file="includes/footer.jsp" %>
