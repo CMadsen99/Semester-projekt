@@ -6,7 +6,7 @@ import FunctionLayer.Material;
 
 public class BoardCalculator {
 
-    public Material calculateSides(int height, int length, int boardID) throws LoginSampleException {
+    public static Material calculateSides(int height, int length, int boardID) throws LoginSampleException {
         double quantity;
 
         Material bodyMaterial = ProductMapper.getBodyMaterial(boardID, length);
@@ -18,7 +18,7 @@ public class BoardCalculator {
         return bodyMaterial;
     }
 
-    public Material calculateBack(int height, int width, int boardID) throws LoginSampleException {
+    public static Material calculateBack(int height, int width, int boardID) throws LoginSampleException {
         double quantity;
 
         Material bodyMaterial = ProductMapper.getBodyMaterial(boardID, width);

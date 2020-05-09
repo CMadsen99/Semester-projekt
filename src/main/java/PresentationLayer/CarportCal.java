@@ -2,6 +2,7 @@ package PresentationLayer;
 
 import FunctionLayer.*;
 import Util.BoardCalculator;
+import Util.StandardMaterialCalculator;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -49,11 +50,23 @@ public class CarportCal extends Command {
             OrderFacade.createOrder(order);
 
             List<Material> materials = new ArrayList<>();
-            Material sides = new BoardCalculator().calculateSides(height, length, bodyMaterialId);
+            Material sides = BoardCalculator.calculateSides(height, length, bodyMaterialId);
             materials.add(sides);
-            Material back = new BoardCalculator().calculateBack(height, width, bodyMaterialId);
+            Material back = BoardCalculator.calculateBack(height, width, bodyMaterialId);
             materials.add(back);
+            Material pillar = StandardMaterialCalculator.calculatePillars(height, length);
+            materials.add(pillar);
+            Material sternFrontBack = StandardMaterialCalculator.calculateSternFrontBack(width);
+            materials.add(sternFrontBack);
+            Material sternSides = StandardMaterialCalculator.calculateSternSides(length);
+            materials.add(sternSides);
+            Material regler = StandardMaterialCalculator.calculateRegler(length, width);
+            materials.add(regler);
+            Material rafter = StandardMaterialCalculator.calculateRafter(width, length);
+            materials.add(rafter);
+
             int maxOrderId = OrderFacade.getMaxOrderId();
+
             for (Material m : materials) {
                 ListFacade.insertListElement(m, maxOrderId);
             }

@@ -165,4 +165,27 @@ public class ProductMapper {
             throw new LoginSampleException(ex.getMessage());
         }
     }
+
+    public static Material getStandardBodyMaterial(int materialID, int length) throws LoginSampleException {
+        Material standardBodyMaterial = null;
+        int quantity = 0;
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT * FROM carport.bodystandartmaterials WHERE idbodystandartmaterials = ?";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setInt(1, materialID);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                String name = rs.getString("standartmaterialsbody");
+                double width = rs.getDouble("width");
+                double height = rs.getDouble("height");
+                standardBodyMaterial = new Material(materialID, name, width, height, length, quantity);
+            }
+            return standardBodyMaterial;
+
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw new LoginSampleException(ex.getMessage());
+        }
+    }
+
 }
