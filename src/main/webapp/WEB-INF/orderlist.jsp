@@ -12,10 +12,10 @@
 
 <c:choose>
     <c:when test="${sessionScope.role=='admin'}">
-        <%@include file="../includes/headeradmin.inc" %>
+        <%@include file="../includes/headeradmin.jsp" %>
     </c:when>
     <c:otherwise>
-        <%@include file="../includes/headercostumer.inc" %>
+        <%@include file="../includes/headercostumer.jsp" %>
     </c:otherwise>
 </c:choose>
 
@@ -28,6 +28,7 @@
         <th scope="col">Højde</th>
         <th scope="col">Længde</th>
         <th scope="col">Bredde</th>
+        <th scope="col">Skur</th>
         <th scope="col">Stykliste</th>
     </tr>
     </thead>
@@ -40,6 +41,7 @@
             <td>${orderList.height}</td>
             <td>${orderList.length}</td>
             <td>${orderList.width}</td>
+            <td>${orderList.shed}</td>
             <td>
                 <form name="collectListView" action="FrontController" method="POST">
                     <input type="hidden" name="taget" value="collectListView">

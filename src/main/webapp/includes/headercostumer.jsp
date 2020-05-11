@@ -26,7 +26,7 @@
 </head>
 <body>
 
-<div class="container align-center">
+
 
 <nav class="navbar navbar-expand-lg navbar-default">
 <a class="navbar-brand" href="index.jsp">

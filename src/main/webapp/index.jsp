@@ -8,10 +8,10 @@
 
 <c:choose>
     <c:when test="${sessionScope.role=='admin'}">
-        <%@include file="includes/headeradmin.inc" %>
+        <%@include file="includes/headeradmin.jsp" %>
     </c:when>
     <c:otherwise>
-        <%@include file="includes/headercostumer.inc" %>
+        <%@include file="includes/headercostumer.jsp" %>
     </c:otherwise>
 </c:choose>
 <style>
@@ -61,6 +61,8 @@
 %>
 <h1 class="text-center mt-4">Design din egen carport her</h1>
 
+
+
 <table style="width:100%">
     <tr>
         <th><h5>Vælg dine mål her</h5></th>
@@ -74,7 +76,7 @@
             <input type="hidden" name="taget" value="carportCal">
             <input type="hidden" name="usersID" value="${sessionScope.usersID}">
             <td>
-                <div class="btn-group mt-4">
+                <div class="col btn-group mt-4">
                     <select name="height" class="mdb-select md-form">
                         <option value="" disabled selected>Vælg Højde</option>
                         <c:forEach var="height" items="${heights}">
@@ -117,7 +119,7 @@
             </td>
 
             <td>
-                <div class="btn-group mt-4">
+                <div class="btn-group mt-4 col">
                     <select name="roofcolor" class="mdb-select md-form">
                         <option value="" disabled selected>Vælg ønskede farve til taget</option>
                         <c:forEach var="roofcolor" items="${roofcolors}">
@@ -129,7 +131,7 @@
                 </div>
             </td>
             <td>
-                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <div id="carouselExampleIndicators" class="carousel slide col" data-ride="carousel">
                     <ol class="carousel-indicators">
                         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -156,10 +158,10 @@
                     </a>
                 </div>
             </td>
-    </tr>
+
     <tr>
         <td>
-            <div class="btn-group mt-4">
+            <div class="col btn-group mt-4">
                 <select name="width" class="mdb-select md-form">
                     <option value="" disabled selected>Vælg Bredde</option>
                     <c:forEach var="width" items="${widths}">
@@ -179,7 +181,7 @@
             </fieldset>
         </td>
         <td>
-            <div class="btn-group mt-4">
+            <div class="col btn-group mt-4">
                 <select name="wallcolor" class="mdb-select md-form">
                     <option value="" disabled selected>Vælg ønskede farve til væggene</option>
                     <c:forEach var="wallcolor" items="${wallcolors}">
@@ -228,7 +230,7 @@
         </td>
 
         <td>
-            <div class="btn-group mt-4">
+            <div class="col btn-group mt-4">
                 <select name="pillarcolor" class="mdb-select md-form">
                     <option value="" disabled selected>Vælg ønskede farve til stolperne</option>
                     <c:forEach var="pillarcolor" items="${pillarcolors}">

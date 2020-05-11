@@ -12,10 +12,10 @@
 
 <c:choose>
     <c:when test="${sessionScope.role=='admin'}">
-        <%@include file="../includes/headeradmin.inc" %>
+        <%@include file="../includes/headeradmin.jsp" %>
     </c:when>
     <c:otherwise>
-        <%@include file="../includes/headercostumer.inc" %>
+        <%@include file="../includes/headercostumer.jsp" %>
     </c:otherwise>
 </c:choose>
 
