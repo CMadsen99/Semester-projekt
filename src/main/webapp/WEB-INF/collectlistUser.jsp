@@ -1,10 +1,14 @@
 <%--
   Created by IntelliJ IDEA.
-  User: Acer
-  Date: 07-05-2020
-  Time: 10:23
+  User: jacobsimonsen
+  Date: 26/04/2020
+  Time: 13.56
   To change this template use File | Settings | File Templates.
+
+
+  medarbejderen går ind på en kundeliste, hvor han så kan vælge en bestemt kunde via en knap hvor han så kan se hele styllisten
 --%>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <title>Stykliste</title>
 
@@ -19,8 +23,8 @@
     </c:otherwise>
 </c:choose>
 
-
-<table class="table">
+<h4 class="mt-4"><b>Materialer til carport</b></h4>
+<table class="table mt-2">
     <thead>
     <tr>
         <th scope="col">Materialenavn</th>
@@ -31,7 +35,33 @@
     </tr>
     </thead>
     <tbody>
-    <c:forEach var="collectList" items="${sessionScope.collectListUser}">
+    <c:forEach var="collectList" items="${sessionScope.collectList}">
+
+        <tr>
+            <th scope="row">${collectList.name}</th>
+            <td>${collectList.height}</td>
+            <td>${collectList.length}</td>
+            <td>${collectList.width}</td>
+            <td>${collectList.quantity}</td>
+
+        </tr>
+    </c:forEach>
+    </tbody>
+</table>
+
+<h4 class="mt-4"><b>Beslag & skruer</b></h4>
+<table class="table mt-2">
+    <thead>
+    <tr>
+        <th scope="col">Materialenavn</th>
+        <th scope="col">Højde</th>
+        <th scope="col">Længde</th>
+        <th scope="col">Bredde</th>
+        <th scope="col">Antal</th>
+    </tr>
+    </thead>
+    <tbody>
+    <c:forEach var="collectList" items="${sessionScope.collectList}">
 
         <tr>
             <th scope="row">${collectList.name}</th>
@@ -47,3 +77,4 @@
 
 
 <%@include file="../includes/footer.jsp" %>
+

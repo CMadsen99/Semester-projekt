@@ -29,6 +29,12 @@
         <th scope="col">Længde</th>
         <th scope="col">Bredde</th>
         <th scope="col">Skur</th>
+        <th scope="col">Skur længde</th>
+        <th scope="col">Skur bredde</th>
+        <th scope="col">Tagets hældning</th>
+        <th scope="col">Farve vægge</th>
+        <th scope="col">Farve stolper</th>
+        <th scope="col">Farve tag</th>
         <th scope="col">Stykliste</th>
     </tr>
     </thead>
@@ -41,7 +47,37 @@
             <td>${orderList.height}</td>
             <td>${orderList.length}</td>
             <td>${orderList.width}</td>
-            <td>${orderList.shed}</td>
+            <c:choose>
+                <c:when test="${orderList.shed==0}">
+                    <td>Nej</td>
+                </c:when>
+                <c:otherwise>
+                    <td>Ja</td>
+                </c:otherwise>
+            </c:choose>
+            <c:choose>
+                <c:when test="${orderList.shedLength==0}">
+                    <td>Nej</td>
+                </c:when>
+                <c:otherwise>
+                    <td>${orderList.shedLength}</td>
+                </c:otherwise>
+            </c:choose>
+            <c:choose>
+                <c:when test="${orderList.shedWidth==2}">
+                    <td>Hele bredden</td>
+                </c:when>
+                <c:when test="${orderList.shedWidth==1}">
+                    <td>Halvdelen</td>
+                </c:when>
+                <c:otherwise>
+                    <td>Nej</td>
+                </c:otherwise>
+            </c:choose>
+            <td>${orderList.roofAngle}° grader</td>
+            <td>${orderList.colorWallId}</td>
+            <td>${orderList.colorPillarId}</td>
+            <td>${orderList.colorRoofId}</td>
             <td>
                 <form name="collectListView" action="FrontController" method="POST">
                     <input type="hidden" name="taget" value="collectListView">
@@ -55,6 +91,7 @@
     </c:forEach>
     </tbody>
 </table>
+
 
 
 <%@include file="../includes/footer.jsp" %>

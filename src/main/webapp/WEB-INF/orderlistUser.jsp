@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
-  User: Acer
-  Date: 07-05-2020
-  Time: 10:22
+  User: jacobsimonsen
+  Date: 06/05/2020
+  Time: 14.20
   To change this template use File | Settings | File Templates.
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -29,22 +29,58 @@
         <th scope="col">Længde</th>
         <th scope="col">Bredde</th>
         <th scope="col">Skur</th>
+        <th scope="col">Skur længde</th>
+        <th scope="col">Skur bredde</th>
+        <th scope="col">Tagets hældning</th>
+        <th scope="col">Farve vægge</th>
+        <th scope="col">Farve stolper</th>
+        <th scope="col">Farve tag</th>
         <th scope="col">Stykliste</th>
     </tr>
     </thead>
     <tbody>
-    <c:forEach var="orderList" items="${sessionScope.orderList}">
+    <c:forEach var="orderList" items="${sessionScope.orderListAll}">
 
         <tr>
             <th scope="row">${orderList.orderId}</th>
             <td>${orderList.userId}</td>
-            <td>${orderList.height} cm</td>
-            <td>${orderList.length} cm</td>
-            <td>${orderList.width} cm</td>
-            <td>${orderList.shed}</td>
+            <td>${orderList.height}</td>
+            <td>${orderList.length}</td>
+            <td>${orderList.width}</td>
+            <c:choose>
+                <c:when test="${orderList.shed==0}">
+                    <td>Nej</td>
+                </c:when>
+                <c:otherwise>
+                    <td>Ja</td>
+                </c:otherwise>
+            </c:choose>
+            <c:choose>
+                <c:when test="${orderList.shedLength==0}">
+                    <td>Nej</td>
+                </c:when>
+                <c:otherwise>
+                    <td>${orderList.shedLength}</td>
+                </c:otherwise>
+            </c:choose>
+            <c:choose>
+                <c:when test="${orderList.shedWidth==2}">
+                    <td>Hele bredden</td>
+                </c:when>
+                <c:when test="${orderList.shedWidth==1}">
+                    <td>Halvdelen</td>
+                </c:when>
+                <c:otherwise>
+                    <td>Nej</td>
+                </c:otherwise>
+            </c:choose>
+            <td>${orderList.roofAngle}° grader</td>
+            <td>${orderList.colorWallId}</td>
+            <td>${orderList.colorPillarId}</td>
+            <td>${orderList.colorRoofId}</td>
             <td>
-                <form name="collectListViewUser" action="FrontController" method="POST">
-                    <input type="hidden" name="taget" value="collectListViewUser">
+                <form name="collectListView" action="FrontController" method="POST">
+                    <input type="hidden" name="taget" value="collectListView">
                     <input type="hidden" name="idOrder" value="${orderList.orderId}">
 
                     <input type="submit" value="Stykliste">
@@ -57,5 +93,5 @@
 </table>
 
 
-<%@include file="../includes/footer.jsp" %>
 
+<%@include file="../includes/footer.jsp" %>
