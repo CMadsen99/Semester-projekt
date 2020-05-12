@@ -312,4 +312,9 @@
 </c:if>
 
 
+<a href="FrontController?taget=drawing">See drawing</a>
+
+
+
+
 <%@include file="includes/footer.jsp" %>
