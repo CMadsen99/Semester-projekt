@@ -188,4 +188,27 @@ public class ProductMapper {
         }
     }
 
+    public static Material getRoofMaterial(int materialID) throws LoginSampleException {
+        Material roofMaterial = null;
+        int width = 0;
+        int length = 0;
+        int quantity = 0;
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT * FROM carport.roofmaterials WHERE idroofmaterials = ?";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setInt(1, materialID);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                String name = rs.getString("material");
+                double height = rs.getDouble("height");
+                roofMaterial = new Material(materialID, name, width, height, length, quantity);
+            }
+            return roofMaterial;
+
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw new LoginSampleException(ex.getMessage());
+        }
+    }
+
 }

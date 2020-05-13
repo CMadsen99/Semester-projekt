@@ -110,4 +110,22 @@ public class OrderMapper {
             throw new LoginSampleException(ex.getMessage());
         }
     }
+
+    public static String getColor(int colorID) throws LoginSampleException {
+        String color = null;
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT color FROM carport.colors WHERE idcolor = ?";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setInt(1, colorID);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                color = rs.getString("color");
+            }
+            return color;
+
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw new LoginSampleException(ex.getMessage());
+        }
+    }
 }

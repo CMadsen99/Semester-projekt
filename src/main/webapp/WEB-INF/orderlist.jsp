@@ -75,6 +75,7 @@
                 </c:otherwise>
             </c:choose>
             <td>${orderList.roofAngle}° grader</td>
+            <c:choose>${}</c:choose>
             <td>${orderList.colorWallId}</td>
             <td>${orderList.colorPillarId}</td>
             <td>${orderList.colorRoofId}</td>

@@ -23,4 +23,9 @@ public class OrderFacade {
         List<Order> orders = OrderMapper.getOrders(userId);
         return orders;
     }
+
+    public static String getColor(int colorId) throws LoginSampleException {
+        String color = OrderMapper.getColor(colorId);
+        return color;
+    }
 }

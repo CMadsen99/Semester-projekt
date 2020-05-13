@@ -38,7 +38,7 @@ public class Connector {
             URL = "jdbc:mysql://161.35.82.220:3306/carport?serverTimezone=CET&useSSL=false";
             USERNAME = "root";
 
-            PASSWORD = "fuck you hacker u cant my password :P";
+            PASSWORD = "FU hacker";
         }
 
 

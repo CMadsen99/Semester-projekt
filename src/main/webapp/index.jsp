@@ -61,6 +61,7 @@
 %>
 <h1 class="text-center mt-4">Design din egen carport her</h1>
 
+<h2 class="text-center mt-4">${requestScope.carportMsg}</h2>
 
 
 <table style="width:100%">

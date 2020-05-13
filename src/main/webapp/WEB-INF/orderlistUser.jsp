@@ -39,7 +39,7 @@
     </tr>
     </thead>
     <tbody>
-    <c:forEach var="orderList" items="${sessionScope.orderListAll}">
+    <c:forEach var="orderList" items="${sessionScope.orderList}">
 
         <tr>
             <th scope="row">${orderList.orderId}</th>
@@ -79,8 +79,8 @@
             <td>${orderList.colorPillarId}</td>
             <td>${orderList.colorRoofId}</td>
             <td>
-                <form name="collectListView" action="FrontController" method="POST">
-                    <input type="hidden" name="taget" value="collectListView">
+                <form name="collectListViewUser" action="FrontController" method="POST">
+                    <input type="hidden" name="taget" value="collectListViewUser">
                     <input type="hidden" name="idOrder" value="${orderList.orderId}">
 
                     <input type="submit" value="Stykliste">
