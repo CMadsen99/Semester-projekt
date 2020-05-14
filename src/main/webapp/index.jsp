@@ -75,6 +75,7 @@
     <tr>
         <form class="text-left mt-0" name="carportCal" method="POST" action="FrontController">
             <input type="hidden" name="taget" value="carportCal">
+            <input type="hidden" name="taget" value="drawing">
             <input type="hidden" name="usersID" value="${sessionScope.usersID}">
             <td>
                 <div class="col btn-group mt-4">
@@ -316,6 +317,7 @@
 <a href="FrontController?taget=drawing">See drawing</a>
 
 
+<!-- du skal ind og skrive svg på siden drawing inge i mappen WEB-INF
 
 
 <%@include file="includes/footer.jsp" %>

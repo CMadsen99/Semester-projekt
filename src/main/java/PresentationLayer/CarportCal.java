@@ -77,6 +77,12 @@ public class CarportCal extends Command {
 
             request.setAttribute("carportMsg", "Carport gemt som ordre");
 
+            Svg svg = new Svg(800, 600, "0,0,800,600", 0, 0);
+            svg.addRect(0,0,600,780);
+            svg.addRect(0,35,4,780);
+            svg.addRect(0,565,4,780);
+            request.setAttribute("svgdrawing",svg.toString());
+
             return "index";
         } else {
             request.setAttribute("orderMsg", "Login krævet for at bestille");

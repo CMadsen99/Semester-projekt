@@ -1,10 +1,11 @@
-<%--
+<%@ page import="FunctionLayer.Roofcolors" %><%--
   Created by IntelliJ IDEA.
   User: jacobsimonsen
   Date: 06/05/2020
   Time: 14.20
   To change this template use File | Settings | File Templates.
 --%>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <title>Semester projekt</title>
 
@@ -75,7 +76,6 @@
                 </c:otherwise>
             </c:choose>
             <td>${orderList.roofAngle}° grader</td>
-            <c:choose>${}</c:choose>
             <td>${orderList.colorWallId}</td>
             <td>${orderList.colorPillarId}</td>
             <td>${orderList.colorRoofId}</td>
