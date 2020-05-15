@@ -23,36 +23,37 @@ public class CarportCal extends Command {
 
         if (usersID > 0) {
 
-            int height = Integer.parseInt(request.getParameter("height")); //antal bræder i højde
-            int width = Integer.parseInt(request.getParameter("width")); //længde på bræder på bagsiden
 
-            int length = Integer.parseInt(request.getParameter("length")); // længde på bræder på siderne
+            try {
+                int height = Integer.parseInt(request.getParameter("height")); //antal bræder i højde
+                int width = Integer.parseInt(request.getParameter("width")); //længde på bræder på bagsiden
 
-            session.setAttribute("length", length);
-            session.setAttribute("width", width);
+                int length = Integer.parseInt(request.getParameter("length")); // længde på bræder på siderne
+
+                session.setAttribute("length", length);
+                session.setAttribute("width", width);
 
 
-            int bodyMaterialId = Integer.parseInt(request.getParameter("bodymaterial"));
-            int roofMaterialId = Integer.parseInt(request.getParameter("roofmaterial"));
+                int bodyMaterialId = Integer.parseInt(request.getParameter("bodymaterial"));
+                int roofMaterialId = Integer.parseInt(request.getParameter("roofmaterial"));
 
-            int roof = Integer.parseInt(request.getParameter("roof"));
-            int tilt = 0;
-            if(roof == 1) {
-                tilt = Integer.parseInt(request.getParameter("tilt"));
-            }
+                int roof = Integer.parseInt(request.getParameter("roof"));
+                int tilt = 0;
+                if (roof == 1) {
+                    tilt = Integer.parseInt(request.getParameter("tilt"));
+                }
 
-            int shed = Integer.parseInt(request.getParameter("shed"));
-            int shedWidth = 0;
-            int shedLength = 0;
-            if(shed == 1) {
-                shedWidth = Integer.parseInt(request.getParameter("shedwidth"));
-                shedLength = Integer.parseInt(request.getParameter("shedlength"));
-            }
+                int shed = Integer.parseInt(request.getParameter("shed"));
+                int shedWidth = 0;
+                int shedLength = 0;
+                if (shed == 1) {
+                    shedWidth = Integer.parseInt(request.getParameter("shedwidth"));
+                    shedLength = Integer.parseInt(request.getParameter("shedlength"));
+                }
 
-            int roofColor = Integer.parseInt(request.getParameter("roofcolor"));
-            int wallColor = Integer.parseInt(request.getParameter("wallcolor"));
-            int pillarColor = Integer.parseInt(request.getParameter("pillarcolor"));
-
+                int roofColor = Integer.parseInt(request.getParameter("roofcolor"));
+                int wallColor = Integer.parseInt(request.getParameter("wallcolor"));
+                int pillarColor = Integer.parseInt(request.getParameter("pillarcolor"));
 
             Order order = new Order(usersID, height, length, width, roof, tilt, shed, shedWidth, shedLength, roofColor, wallColor, pillarColor);
             OrderFacade.createOrder(order);
@@ -84,11 +85,10 @@ public class CarportCal extends Command {
 
             request.setAttribute("carportMsg", "Carport gemt som ordre");
 
-            Svg svg = new Svg(800, 600, "0,0,800,600", 0, 0);
-            svg.addRect(0,0,600,780);
-            svg.addRect(0,35,4,780);
-            svg.addRect(0,565,4,780);
-            request.setAttribute("svgdrawing",svg.toString());
+            } catch (Exception e) {
+                request.setAttribute("exeptionMsg", "Der er noget der mangler at blive udfyldt, prøv igen");
+                e.printStackTrace();
+            }
 
             return "index";
         } else {

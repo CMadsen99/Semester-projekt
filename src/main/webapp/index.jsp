@@ -63,6 +63,8 @@
 
 <h2 class="text-center mt-4">${requestScope.carportMsg}</h2>
 
+<h2 class="text-center mt-4">${requestScope.exeptionMsg}</h2>
+
 
 <table style="width:100%">
     <tr>
