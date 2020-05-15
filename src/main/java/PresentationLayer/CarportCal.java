@@ -7,12 +7,14 @@ import Util.StandardMaterialCalculator;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
 public class CarportCal extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
+        HttpSession session = request.getSession();
 
         int usersID = 0;
         if (!(request.getParameter("usersID") == "")) {
@@ -23,7 +25,12 @@ public class CarportCal extends Command {
 
             int height = Integer.parseInt(request.getParameter("height")); //antal bræder i højde
             int width = Integer.parseInt(request.getParameter("width")); //længde på bræder på bagsiden
+
             int length = Integer.parseInt(request.getParameter("length")); // længde på bræder på siderne
+
+            session.setAttribute("length", length);
+            session.setAttribute("width", width);
+
 
             int bodyMaterialId = Integer.parseInt(request.getParameter("bodymaterial"));
             int roofMaterialId = Integer.parseInt(request.getParameter("roofmaterial"));

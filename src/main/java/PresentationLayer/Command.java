@@ -20,7 +20,6 @@ abstract class Command {
         commands.put("collectListView", new CollectListView() );
         commands.put("orderView", new OrderView() );
         commands.put("collectListViewUser", new CollectListViewUser() );
-        commands.put( "drawing", new Drawing());
     }
 
     static Command from( HttpServletRequest request ) {
