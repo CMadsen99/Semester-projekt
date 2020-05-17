@@ -39,7 +39,7 @@
       <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a style="color:white" ;="" class="nav-link" href="FrontController?taget=orderViewCustomer&destination=orderHistoryCostumer">Ordre historik <span class="sr-only">(current)</span></a>
+            <a style="color:white" ;="" class="nav-link" href="FrontController?taget=orderViewCustomer&destination=orderlistCustomer">Ordre historik <span class="sr-only">(current)</span></a>
           </li>
              <%if ((session.getAttribute("email") != null)) { %>
                           <li style="color:white" class="nav-item dropdown">

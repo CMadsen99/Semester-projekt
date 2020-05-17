@@ -1,5 +1,6 @@
 package DBAccess;
 
+import FunctionLayer.Accessory;
 import FunctionLayer.LoginSampleException;
 import FunctionLayer.Material;
 import FunctionLayer.Product;
@@ -125,6 +126,7 @@ public class ProductMapper {
             throw new LoginSampleException(ex.getMessage());
         }
     }
+
     public static ArrayList<Material> getColors() throws LoginSampleException {
         ArrayList<Material> colors = new ArrayList<>();
         try {
@@ -211,4 +213,25 @@ public class ProductMapper {
         }
     }
 
+    public static ArrayList<Accessory> getAccessories() throws LoginSampleException {
+        ArrayList<Accessory> accessories = new ArrayList<>();
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT * FROM carport.accessories";
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(SQL);
+            while (rs.next()) {
+                int idAccessory = rs.getInt("idaccessories");
+                String name = rs.getString("type");
+                String dimensions = rs.getString("dimensions");
+                int quantity = rs.getInt("quantity");
+                String unit = rs.getString("unit");
+                Accessory accessory = new Accessory(idAccessory, name, dimensions, quantity, unit);
+                accessories.add(accessory);
+            }
+            return accessories;
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw new LoginSampleException(ex.getMessage());
+        }
+    }
 }

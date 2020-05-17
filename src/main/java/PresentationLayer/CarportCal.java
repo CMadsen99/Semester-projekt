@@ -3,6 +3,7 @@ package PresentationLayer;
 import FunctionLayer.*;
 import Util.BoardCalculator;
 import Util.RoofCalculator;
+import Util.ShedCalculator;
 import Util.StandardMaterialCalculator;
 
 import javax.servlet.http.HttpServletRequest;
@@ -76,6 +77,13 @@ public class CarportCal extends Command {
             materials.add(rafter);
             Material roofMaterial = RoofCalculator.calculateRoof(width, length, roofMaterialId);
             materials.add(roofMaterial);
+
+            if(shed == 1) {
+                Material shedSide = ShedCalculator.calculateSide(height, shedLength, bodyMaterialId);
+                materials.add(shedSide);
+                Material shedFront = ShedCalculator.calculateFront(height, width, shedWidth, bodyMaterialId);
+                materials.add(shedFront);
+            }
 
             int maxOrderId = OrderFacade.getMaxOrderId();
 

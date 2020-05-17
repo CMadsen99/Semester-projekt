@@ -35,11 +35,10 @@
         <th scope="col">Farve vægge</th>
         <th scope="col">Farve stolper</th>
         <th scope="col">Farve tag</th>
-        <th scope="col">Stykliste</th>
     </tr>
     </thead>
     <tbody>
-    <c:forEach var="orderList" items="${sessionScope.orderList}">
+    <c:forEach var="orderList" items="${sessionScope.orderListCustomer}">
 
         <tr>
             <th scope="row">${orderList.orderId}</th>
@@ -78,20 +77,12 @@
             <td>${orderList.colorWallName}</td>
             <td>${orderList.colorPillarName}</td>
             <td>${orderList.colorRoofName}</td>
-            <td>
-                <form name="collectListViewUser" action="FrontController" method="POST">
-                    <input type="hidden" name="taget" value="collectListViewUser">
-                    <input type="hidden" name="idOrder" value="${orderList.orderId}">
-
-                    <input type="submit" value="Stykliste">
-                </form>
-            </td>
 
         </tr>
     </c:forEach>
     </tbody>
 </table>
 
-
+<h2 class="text-center mt-4">${requestScope.noOrdersMsg}</h2>
 
 <%@include file="../includes/footer.jsp" %>

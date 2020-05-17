@@ -1,4 +1,4 @@
-<%--
+<%@ page import="FunctionLayer.Accessories" %><%--
   Created by IntelliJ IDEA.
   User: jacobsimonsen
   Date: 26/04/2020
@@ -22,6 +22,21 @@
         <%@include file="../includes/headercostumer.jsp" %>
     </c:otherwise>
 </c:choose>
+
+<%!
+
+    @Override
+    public void jspInit() {
+        Accessories.initAccessories();
+    }
+
+%>
+
+<%
+
+    request.setAttribute("accessories", Accessories.getAccessories());
+
+%>
 
 <h4 class="mt-4"><b>Materialer til carport</b></h4>
 <table class="table mt-2">
@@ -60,13 +75,13 @@
     </tr>
     </thead>
     <tbody>
-    <c:forEach var="collectList" items="${sessionScope.collectList}">
+    <c:forEach var="accessories" items="${requestScope.accessories}">
 
         <tr>
-            <th scope="row">${collectList.name}</th>
-            <td>${collectList.height}</td>
-            <td>${collectList.length}</td>
-            <td>${collectList.width}</td>
+            <th scope="row">${accessories.name}</th>
+            <td>${accessories.dimensions}</td>
+            <td>${accessories.quantity}</td>
+            <td>${accessories.unit}</td>
 
 
         </tr>

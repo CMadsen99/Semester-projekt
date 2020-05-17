@@ -7,7 +7,7 @@
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<title>Semester projekt</title>
+<title>Ordrehistorik</title>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
@@ -76,9 +76,9 @@
                 </c:otherwise>
             </c:choose>
             <td>${orderList.roofAngle}° grader</td>
-            <td>${orderList.colorWallId}</td>
-            <td>${orderList.colorPillarId}</td>
-            <td>${orderList.colorRoofId}</td>
+            <td>${orderList.colorWallName}</td>
+            <td>${orderList.colorPillarName}</td>
+            <td>${orderList.colorRoofName}</td>
             <td>
                 <form name="collectListView" action="FrontController" method="POST">
                     <input type="hidden" name="taget" value="collectListView">

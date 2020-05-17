@@ -36,7 +36,10 @@ public class OrderMapper {
         ArrayList<Order> orders = new ArrayList<>();
         try {
             Connection con = Connector.connection();
-            String SQL = "SELECT * FROM carport.orders WHERE userid = ?";
+            String SQL = "SELECT o.idorders, o.userid, o.height, o.length, o.width, o.rooftype, o.roofangle, o.shed, o.shedwidth, o.shedlength, ca.color as roofcolor, cb.color as wallcolor, cc.color as pillarcolor \n" +
+                    "FROM orders o, colors ca, colors cb, colors cc\n" +
+                    "WHERE o.colorroofid = ca.idcolor AND o.colorwallid = cb.idcolor AND o.colorpillarid = cc.idcolor AND o.userid = ?\n" +
+                    "ORDER BY o.idorders asc";
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
@@ -51,11 +54,11 @@ public class OrderMapper {
                 int shed = rs.getInt("shed");
                 int shedWidth = rs.getInt("shedwidth");
                 int shedLength = rs.getInt("shedlength");
-                int colorRoofId = rs.getInt("colorroofid");
-                int colorWallId = rs.getInt("colorwallid");
-                int colorPillarId = rs.getInt("colorpillarid");
+                String colorRoofName = rs.getString("roofcolor");
+                String colorWallName = rs.getString("wallcolor");
+                String colorPillarName = rs.getString("pillarcolor");
 
-                Order order = new Order(orderId, userId, height, length, width, roofType, roofAngle, shed, shedWidth, shedLength, colorRoofId, colorWallId, colorPillarId);
+                Order order = new Order(orderId, userId, height, length, width, roofType, roofAngle, shed, shedWidth, shedLength, colorRoofName, colorWallName, colorPillarName);
                 orders.add(order);
             }
             return orders;
@@ -68,7 +71,10 @@ public class OrderMapper {
         ArrayList<Order> orders = new ArrayList<>();
         try {
             Connection con = Connector.connection();
-            String SQL = "SELECT * FROM carport.orders";
+            String SQL = "SELECT o.idorders, o.userid, o.height, o.length, o.width, o.rooftype, o.roofangle, o.shed, o.shedwidth, o.shedlength, ca.color as roofcolor, cb.color as wallcolor, cc.color as pillarcolor \n" +
+                    "FROM orders o, colors ca, colors cb, colors cc\n" +
+                    "WHERE o.colorroofid = ca.idcolor AND o.colorwallid = cb.idcolor AND o.colorpillarid = cc.idcolor\n" +
+                    "ORDER BY o.idorders asc";
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery(SQL);
             while (rs.next()) {
@@ -82,11 +88,11 @@ public class OrderMapper {
                 int shed = rs.getInt("shed");
                 int shedWidth = rs.getInt("shedwidth");
                 int shedLength = rs.getInt("shedlength");
-                int colorRoofId = rs.getInt("colorroofid");
-                int colorWallId = rs.getInt("colorwallid");
-                int colorPillarId = rs.getInt("colorpillarid");
+                String colorRoofName = rs.getString("roofcolor");
+                String colorWallName = rs.getString("wallcolor");
+                String colorPillarName = rs.getString("pillarcolor");
 
-                Order order = new Order(orderId, userId, height, length, width, roofType, roofAngle, shed, shedWidth, shedLength, colorRoofId, colorWallId, colorPillarId);
+                Order order = new Order(orderId, userId, height, length, width, roofType, roofAngle, shed, shedWidth, shedLength, colorRoofName, colorWallName, colorPillarName);
                 orders.add(order);
             }
             return orders;
@@ -111,21 +117,4 @@ public class OrderMapper {
         }
     }
 
-    public static String getColor(int colorID) throws LoginSampleException {
-        String color = null;
-        try {
-            Connection con = Connector.connection();
-            String SQL = "SELECT color FROM carport.colors WHERE idcolor = ?";
-            PreparedStatement ps = con.prepareStatement(SQL);
-            ps.setInt(1, colorID);
-            ResultSet rs = ps.executeQuery();
-            if (rs.next()) {
-                color = rs.getString("color");
-            }
-            return color;
-
-        } catch (ClassNotFoundException | SQLException ex) {
-            throw new LoginSampleException(ex.getMessage());
-        }
-    }
 }

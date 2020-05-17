@@ -15,6 +15,9 @@ public class Order {
     private int colorRoofId;
     private int colorWallId;
     private int colorPillarId;
+    private String colorRoofName;
+    private String colorWallName;
+    private String colorPillarName;
 
     public Order(int userId, int height, int length, int width, int roofType, int roofAngle, int shed, int shedWidth, int shedLength, int colorRoofId, int colorWallId, int colorPillarId) {
         this.userId = userId;
@@ -31,7 +34,7 @@ public class Order {
         this.colorPillarId = colorPillarId;
     }
 
-    public Order(int orderId, int userId, int height, int length, int width, int roofType, int roofAngle, int shed, int shedWidth, int shedLength, int colorRoofId, int colorWallId, int colorPillarId) {
+    public Order(int orderId, int userId, int height, int length, int width, int roofType, int roofAngle, int shed, int shedWidth, int shedLength, String colorRoofName, String colorWallName, String colorPillarName) {
         this.orderId = orderId;
         this.userId = userId;
         this.height = height;
@@ -42,10 +45,11 @@ public class Order {
         this.shed = shed;
         this.shedWidth = shedWidth;
         this.shedLength = shedLength;
-        this.colorRoofId = colorRoofId;
-        this.colorWallId = colorWallId;
-        this.colorPillarId = colorPillarId;
+        this.colorRoofName = colorRoofName;
+        this.colorWallName = colorWallName;
+        this.colorPillarName = colorPillarName;
     }
+
 
     public int getOrderId() {
         return orderId;
@@ -149,5 +153,29 @@ public class Order {
 
     public void setColorPillarId(int colorPillarId) {
         this.colorPillarId = colorPillarId;
+    }
+
+    public String getColorRoofName() {
+        return colorRoofName;
+    }
+
+    public void setColorRoofName(String colorRoofName) {
+        this.colorRoofName = colorRoofName;
+    }
+
+    public String getColorWallName() {
+        return colorWallName;
+    }
+
+    public void setColorWallName(String colorWallName) {
+        this.colorWallName = colorWallName;
+    }
+
+    public String getColorPillarName() {
+        return colorPillarName;
+    }
+
+    public void setColorPillarName(String colorPillarName) {
+        this.colorPillarName = colorPillarName;
     }
 }

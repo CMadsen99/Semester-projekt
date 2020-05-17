@@ -7,7 +7,7 @@
 --%>
 <%@ page import="FunctionLayer.UserList" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<title>Semester projekt</title>
+<title>Kundeoplysninger</title>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
