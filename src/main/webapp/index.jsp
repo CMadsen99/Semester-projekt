@@ -189,10 +189,9 @@
         <td>
             <fieldset id="shedwidth">
             <div id="div1" class="hide">
-                <input type="radio" name="shedwidth" value="2"> Ja tak til skuret skal fylde hele carportens bredde
-                <br><input type="radio" name="shedwidth" value="1"> Ja tak til skuret skal fylde halvdelen af
-                carportens bredde
-                <div class="btn-group mt-4">
+                <input type="radio" name="shedwidth" value="2"> Ja tak til hele carportens bredde
+                <br><input type="radio" name="shedwidth" value="1"> Ja tak til halvdelen af carportens bredde
+                <br><div class="btn-group mt-4">
                     <select name="shedlength" class="mdb-select md-form">
                         <option value="" disabled selected>Vælg ønskede længde til skuret</option>
                         <c:forEach var="length" items="${lengths}">
@@ -221,7 +220,7 @@
         </td>
     </tr>
     <tr>
-        <td>Vælg dine materialer her</td>
+        <td class="mt-4"><h5>Vælg dine materialer her</h5></td>
     </tr>
     <tr>
 
@@ -236,6 +235,9 @@
                     </c:forEach>
                 </select>
             </div>
+        </td>
+        <td>
+
         </td>
     </tr>
     <tr>

@@ -54,10 +54,9 @@
     <thead>
     <tr>
         <th scope="col">Materialenavn</th>
-        <th scope="col">Højde</th>
-        <th scope="col">Længde</th>
-        <th scope="col">Bredde</th>
+        <th scope="col">Dimentioner</th>
         <th scope="col">Antal</th>
+        <th scope="col">Enhed</th>
     </tr>
     </thead>
     <tbody>
@@ -68,7 +67,7 @@
             <td>${collectList.height}</td>
             <td>${collectList.length}</td>
             <td>${collectList.width}</td>
-            <td>${collectList.quantity}</td>
+
 
         </tr>
     </c:forEach>
