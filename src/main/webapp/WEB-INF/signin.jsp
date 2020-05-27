@@ -25,7 +25,7 @@
 
             <div class="form-group">
                 <label for="email">Indtast e-mail:</label>
-                <input type="text" name="email" class="form-control" id="email">
+                <input type="email" name="email" class="form-control" id="email">
             </div>
 
             <div class="form-group">

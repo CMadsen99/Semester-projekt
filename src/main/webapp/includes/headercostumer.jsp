@@ -56,8 +56,5 @@
                        </li>
                  <% } %>
         </ul>
-        <a class="navbar-brand" href="FrontController?taget=redirect&destination=basket">
-                 <img src="images/basket.png" alt="basket.jsp">
-               </a>
       </div>
     </nav>

@@ -11,17 +11,6 @@
     <title>Title</title>
 </head>
 <body>
-
-
-man skal kunne redigere kundens info med:
-
-ændre brugernavn
-ændre mail
-ændre adresse(by,zipcode & adresse)
-ændre password
-
-tekstfeldt med knap til alle de ting man kan ædnre
-
-4 forskellige forms med submitnknap, der føre tild de forskellige klasser
+<h1 class="text-center">Under opdaterning kom igen senere</h1>
 </body>
 </html>

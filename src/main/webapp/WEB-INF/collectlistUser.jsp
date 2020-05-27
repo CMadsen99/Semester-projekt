@@ -50,7 +50,7 @@
     </tr>
     </thead>
     <tbody>
-    <c:forEach var="collectList" items="${sessionScope.collectList}">
+    <c:forEach var="collectList" items="${sessionScope.collectListUser}">
 
         <tr>
             <th scope="row">${collectList.name}</th>

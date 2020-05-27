@@ -2,7 +2,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="../includes/headercostumer.jsp" %>
 
-
+<h2 class="text-center mt-4">${requestScope.registermsg}</h2>
+<h2 class="text-center mt-4">${requestScope.passwordMsg}</h2>
 <h1 class="text-center mt-4">Registrer her:</h1>
 
 
@@ -24,7 +25,7 @@
 
             <div class="form-group">
                 <label for="email">Indtast e-mail:</label>
-                <input type="text" name="email" class="form-control" id="email">
+                <input type="email" name="email" class="form-control" id="email">
             </div>
 
             <div class="form-group">
@@ -44,7 +45,7 @@
 
             <div class="form-group">
                 <label for="zipcode">Indtast posnummer:</label>
-                <input type="text" name="<zipcode>" class="form-control" id="zipcode">
+                <input type="number" name="<zipcode>" class="form-control" id="zipcode">
             </div>
 
             <div class="form-group">
