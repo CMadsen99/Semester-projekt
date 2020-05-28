@@ -13,7 +13,7 @@ import java.util.ArrayList;
  * henter alle bruger fra databasen, putter ny oprettet bruger ind i databasen, 
  * @author christanmadsen &
  * @version 2020.1
- * @since 17-04-2020
+ * @since 17-04-2020 Mashallah
  */
 public class UserMapper {
 
