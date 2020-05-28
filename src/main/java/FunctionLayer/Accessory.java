@@ -1,5 +1,12 @@
 package FunctionLayer;
 
+/**
+ * Indeholder variabler, constructer og get/set af informationer omkring accessory delene til carporten
+ * @author jacobsimonsen, christanmadsen & jonasjørgensen
+ * @version 2020.1
+ * @since 17-04-2020
+ */
+
 public class Accessory {
 
     private int id;

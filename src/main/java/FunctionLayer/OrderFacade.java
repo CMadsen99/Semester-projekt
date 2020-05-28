@@ -4,6 +4,13 @@ import DBAccess.OrderMapper;
 
 import java.util.List;
 
+/**
+ *
+ * @author jacobsimonsen, christanmadsen & jonasjørgensen
+ * @version 2020.1
+ * @since 17-04-2020
+ */
+
 public class OrderFacade {
 
     public static void createOrder(Order order) throws LoginSampleException {

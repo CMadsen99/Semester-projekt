@@ -3,9 +3,12 @@ package FunctionLayer;
 import DBAccess.UserMapper;
 
 /**
- * The purpose of LogicFacade is to...
- * @author kasper
+ * Laver en bruger med alle dens oplysninger
+ * @author jacobsimonsen, christanmadsen & jonasjørgensen
+ * @version 2020.1
+ * @since 17-04-2020
  */
+
 public class LogicFacade {
 
     public static User login(String name, String email, String password ) throws LoginSampleException {

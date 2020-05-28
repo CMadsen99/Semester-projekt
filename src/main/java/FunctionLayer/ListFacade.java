@@ -4,6 +4,13 @@ import DBAccess.ListMapper;
 
 import java.util.List;
 
+/**
+ *
+ * @author jacobsimonsen, christanmadsen & jonasjørgensen
+ * @version 2020.1
+ * @since 17-04-2020
+ */
+
 public class ListFacade {
 
     public static void insertListElement(Material material, int maxOrderId) throws LoginSampleException {
