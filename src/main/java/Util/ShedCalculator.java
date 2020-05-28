@@ -3,6 +3,12 @@ package Util;
 import DBAccess.ProductMapper;
 import FunctionLayer.LoginSampleException;
 import FunctionLayer.Material;
+/**
+ * beregner hvor mange brædder der skal bruges til skuret hvis kunden har valgt skur
+ * @author jacobsimonsen, christanmadsen & jonasjørgensen
+ * @version 2020.1
+ * @since 17-04-2020
+ */
 
 public class ShedCalculator {
 

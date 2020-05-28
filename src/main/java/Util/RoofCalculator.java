@@ -3,6 +3,12 @@ package Util;
 import DBAccess.ProductMapper;
 import FunctionLayer.LoginSampleException;
 import FunctionLayer.Material;
+/**
+ * bergner hvor mange plader skal være på taget, der kommer bruger input ind og der bliver så begrenget hvor mange plader der skal bruges
+ * @author jacobsimonsen, christanmadsen
+ * @version 2020.1
+ * @since 17-04-2020
+ */
 
 public class RoofCalculator {
 
