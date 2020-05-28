@@ -7,7 +7,12 @@ import FunctionLayer.Product;
 
 import java.sql.*;
 import java.util.ArrayList;
-
+/**
+ * Henter alle materialer fra databasen, som  bliver puttet i Product Arrays
+ * @author christanmadsen
+ * @version 2020.1
+ * @since 17-04-2020
+ */
 public class ProductMapper {
 
     public static ArrayList<Product> getHeights() throws LoginSampleException {

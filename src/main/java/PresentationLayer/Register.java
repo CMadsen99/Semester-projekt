@@ -8,7 +8,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 public class Register extends Command {
-
+    /**
+     * registere sig på siden, så der kommer en ny bruger, sakl have udfyldt alle feltene ellers kommer der en exception
+     * @author jacobsimonsen
+     * @version 2020.1
+     * @since 17-04-2020
+     */
     @Override
     String execute( HttpServletRequest request, HttpServletResponse response ) throws LoginSampleException {
         try {

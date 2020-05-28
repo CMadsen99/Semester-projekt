@@ -12,6 +12,13 @@ import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Henter alle variabler fra kundens valg af carport og putter ind i variabler, tjekker om alt er udfyldt ellers kommer der en Exception
+ * @author christanmadsen
+ * @version 2020.1
+ * @since 17-04-2020
+ */
+
 public class CarportCal extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {

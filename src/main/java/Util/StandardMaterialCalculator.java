@@ -4,6 +4,13 @@ import DBAccess.ProductMapper;
 import FunctionLayer.LoginSampleException;
 import FunctionLayer.Material;
 
+/**
+ * beregner hvor lange og høje standartsmaterialer skal være til carport
+ * @author jacobsimonsen, christanmadsen & jonasjørgensen
+ * @version 2020.1
+ * @since 17-04-2020
+ */
+
 public class StandardMaterialCalculator {
 
     // Stolpe er længden = med carportens højde

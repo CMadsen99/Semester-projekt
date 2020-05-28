@@ -14,8 +14,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
-
- @author kasper
+ * Sørger for at der er sider der kun kan vises hvis man er logget ind.
+ * @author jacobsimonsen, christanmadsen & jonasjørgensen
+ * @version 2020.1
+ * @since 17-04-2020
  */
 @WebServlet( name = "FrontController", urlPatterns = { "/FrontController" } )
 public class FrontController extends HttpServlet {

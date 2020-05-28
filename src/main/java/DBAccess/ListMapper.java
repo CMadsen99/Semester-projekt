@@ -10,6 +10,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+/**
+ * Henter lister fra database tabellerne. Indsætter til stykliste tabellen
+ * @author christanmadsen
+ * @version 2020.1
+ * @since 17-04-2020
+ */
+
 public class ListMapper {
 
     public static void insertListElement(Material material, int maxOrderId) throws LoginSampleException {

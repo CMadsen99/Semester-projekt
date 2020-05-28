@@ -8,9 +8,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- The purpose of Login is to...
-
- @author kasper
+ * for login variabler og bruger bliver retuneret til index siden
+ * @author jacobsimonsen
+ * @version 2020.1
+ * @since 17-04-2020
  */
 public class Login extends Command {
 

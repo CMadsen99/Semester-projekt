@@ -6,6 +6,13 @@ import FunctionLayer.Order;
 import java.sql.*;
 import java.util.ArrayList;
 
+/**
+ * Indsætter i ordertabellen, indsætter nye bruger i user tabellen, henter ordre ned fra ordertabellen, henter også max order id'et.
+ * @author hristanmadsen
+ * @version 2020.1
+ * @since 17-04-2020
+ */
+
 public class OrderMapper {
 
     public static void insertOrder(Order order) throws LoginSampleException {

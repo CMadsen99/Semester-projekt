@@ -10,9 +10,10 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 /**
- The purpose of UserMapper is to...
-
- @author kasper
+ * henter alle bruger fra databasen, putter ny oprettet bruger ind i databasen, 
+ * @author christanmadsen &
+ * @version 2020.1
+ * @since 17-04-2020
  */
 public class UserMapper {
 

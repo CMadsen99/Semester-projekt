@@ -8,7 +8,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.List;
-
+/**
+ * viser kundens egne ordre baseret op Userid
+ * @author jacobsimonsen, christanmadsen
+ * @version 2020.1
+ * @since 17-04-2020
+ */
 public class OrderViewCustomer extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {

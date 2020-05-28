@@ -5,9 +5,10 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 /**
- * The purpose of Connector is to...
- *
- * @author kasper
+ * Får forbindelse med databasen med nødvendig kode, username, og rigtgie ip adresse
+ * @author jacobsimonsen, christanmadsen & jonasjørgensen
+ * @version 2020.1
+ * @since 17-04-2020
  */
 public class Connector {
 
@@ -35,10 +36,10 @@ public class Connector {
 
 
             //localhost
-            URL = "jdbc:mysql://161.35.82.220:3306/carport?serverTimezone=CET&useSSL=false";
+            URL = "jdbc:mysql://178.128.248.191:3306/carport?serverTimezone=CET&useSSL=false";
             USERNAME = "root";
 
-            PASSWORD = "Fu hacker";
+            PASSWORD = "MitPassword1234/";
         }
 
 
