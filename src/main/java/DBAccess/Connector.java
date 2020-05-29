@@ -39,7 +39,7 @@ public class Connector {
             URL = "jdbc:mysql://188.166.71.66:3306/carport?serverTimezone=CET&useSSL=false";
             USERNAME = "root";
 
-            PASSWORD = "MitPassword1234/";
+            PASSWORD = "Hej med dig";
         }
 
 
