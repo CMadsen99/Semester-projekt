@@ -4,7 +4,7 @@ import DBAccess.UserMapper;
 
 /**
  * Laver en bruger med alle dens oplysninger
- * @author jacobsimonsen, christanmadsen & jonasjørgensen
+ * @author jacobsimonsen, christanmadsen jonasjørgensen
  * @version 2020.1
  * @since 17-04-2020
  */

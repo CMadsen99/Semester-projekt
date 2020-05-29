@@ -2,7 +2,7 @@ package FunctionLayer;
 
 /**
  * Laver variabler, constructer og get/set af alle de informationer en costumer har når de opretter en bruger
- * @author jacobsimonsen, christanmadsen & jonasjørgensen
+ * @author jacobsimonsen, christanmadsen jonasjørgensen
  * @version 2020.1
  * @since 17-04-2020
  */

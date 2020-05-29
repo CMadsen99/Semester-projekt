@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * Laver en arraylist med de mulige hældninger kunden kan vælge
- * @author jacobsimonsen, christanmadsen & jonasjørgensen
+ * @author jacobsimonsen, christanmadsen jonasjørgensen
  * @version 2020.1
  * @since 17-04-2020
  */

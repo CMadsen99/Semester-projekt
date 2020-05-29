@@ -5,7 +5,7 @@ import DBAccess.ListMapper;
 import java.util.List;
 
 /** formålet med Listfacade er at man ikke henter mapper ned direkte i PresentationLayer
- * @author jacobsimonsen, christanmadsen & jonasjørgensen
+ * @author jacobsimonsen, christanmadsen jonasjørgensen
  * @version 2020.1
  * @since 17-04-2020
  */

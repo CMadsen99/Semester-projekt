@@ -4,7 +4,7 @@ import com.sun.javafx.binding.StringFormatter;
 
 /**
  * Laver variabler, constructer og get/set af alle de informationer, som skal bruges til at konstruerer vores svg tegning
- * @author jacobsimonsen, christanmadsen & jonasjørgensen
+ * @author jacobsimonsen, christanmadsen jonasjørgensen
  * @version 2020.1
  * @since 17-04-2020
  */

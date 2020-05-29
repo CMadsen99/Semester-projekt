@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 /**
  * Indsætter i ordertabellen, indsætter nye bruger i user tabellen, henter ordre ned fra ordertabellen, henter også max order id'et.
- * @author hristanmadsen
+ * @author christanmadsen
  * @version 2020.1
  * @since 17-04-2020
  */

@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 /**
  * Får forbindelse med databasen med nødvendig kode, username, og rigtgie ip adresse
- * @author jacobsimonsen, christanmadsen & jonasjørgensen
+ * @author jacobsimonsen, christanmadsen jonasjørgensen
  * @version 2020.1
  * @since 17-04-2020
  */

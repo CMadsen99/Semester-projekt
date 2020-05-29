@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * Sørger for at der er sider der kun kan vises hvis man er logget ind.
- * @author jacobsimonsen, christanmadsen & jonasjørgensen
+ * @author jacobsimonsen, christanmadsen jonasjørgensen
  * @version 2020.1
  * @since 17-04-2020
  */
