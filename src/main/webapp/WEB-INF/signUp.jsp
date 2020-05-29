@@ -45,7 +45,7 @@
 
             <div class="form-group">
                 <label for="zipcode">Indtast posnummer:</label>
-                <input type="number" name="<zipcode>" class="form-control" id="zipcode">
+                <input type="number" inputmode="numeric" pattern="[0-9]*" name="<zipcode>" class="form-control" id="zipcode">
             </div>
 
             <div class="form-group">
